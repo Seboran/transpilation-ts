@@ -35,7 +35,14 @@ export default class CobolGenerator
   }
 
   visitSi(node: SiNode): SiNode {
-    throw new Error('Method not implemented.')
+    this.code += 'IF '
+    this.visitCondition(node.condition)
+    this.code += '\n  '
+    this.visitExpression(node.conditionVraieExpression)
+    this.code += '\n  '
+    this.visitExpression(node.conditionFausseExpression)
+    this.code += '\nEND-IF'
+    return node
   }
   visitSoustraction(node: SoustractionNode): SoustractionNode {
     throw new Error('Method not implemented.')
