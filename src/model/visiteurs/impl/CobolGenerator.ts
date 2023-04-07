@@ -52,7 +52,10 @@ export default class CobolGenerator
     return node
   }
   visitSuperieur(node: SuperieurNode): SuperieurNode {
-    throw new Error('Method not implemented.')
+    this.visitExpression(node.a)
+    this.code += ' > '
+    this.visitExpression(node.b)
+    return node
   }
   print(): string {
     return this.code
