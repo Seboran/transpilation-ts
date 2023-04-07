@@ -27,7 +27,11 @@ export default class CobolGenerator
   }
 
   visitMultiplication(node: MultiplicationNode): MultiplicationNode {
-    throw new Error('Method not implemented.')
+    this.code += 'MULTIPLY '
+    this.visitExpression(node.a)
+    this.code += ' BY '
+    this.visitExpression(node.b)
+    return node
   }
 
   visitSi(node: SiNode): SiNode {
