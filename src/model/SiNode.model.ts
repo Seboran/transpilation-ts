@@ -4,16 +4,16 @@ import VisiteurNode from './visiteurs/VisiteurNode'
 
 export default class SiNode extends NodeModel {
   constructor(
-    private condition: ConditionNode,
-    private conditionVraieExpression: NodeModel,
-    private conditionFausseExpression: NodeModel
+    public condition: ConditionNode,
+    public conditionVraieExpression: NodeModel,
+    public conditionFausseExpression: NodeModel
   ) {
     super()
   }
   accept(visitor: VisiteurNode): void {
-    visitor.visitCondition(this.condition)
-    visitor.visitExpression(this.conditionVraieExpression)
-    visitor.visitExpression(this.conditionFausseExpression)
+    // visitor.visitCondition(this.condition)
+    // visitor.visitExpression(this.conditionVraieExpression)
+    // visitor.visitExpression(this.conditionFausseExpression)
     visitor.visitSi(this)
   }
 }

@@ -3,7 +3,7 @@ import NodeModel from './Node.model'
 import VisiteurNode from './visiteurs/VisiteurNode'
 
 export default class SoustractionNode extends ExpressionNode {
-  constructor(private a: ExpressionNode, private b: ExpressionNode) {
+  constructor(public a: ExpressionNode, public b: ExpressionNode) {
     super()
   }
 
