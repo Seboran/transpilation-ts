@@ -10,9 +10,13 @@ import SoustractionNode from '../../SoustractionNode.model'
 import SuperieurNode from '../../SuperieurNode.model'
 import VisiteurNode from '../VisiteurNode'
 import { applyMethodDecoratorToAllMethods } from '../../../decorators/applyMethodDecoratorToAllMethods'
+import AbstractVisiteur from './AbstractVisiteur'
 
 @applyMethodDecoratorToAllMethods(consolelogDecorator)
-export default class ConsoleLogVisiteur implements VisiteurNode {
+export default class ConsoleLogVisiteur
+  extends AbstractVisiteur
+  implements VisiteurNode
+{
   visitNumberValue(node: number): number {
     throw new Error('Method not implemented.')
   }
@@ -29,8 +33,7 @@ export default class ConsoleLogVisiteur implements VisiteurNode {
     return node
   }
   visitExpression(node: ExpressionNode): ExpressionNode {
-    console.log(node)
-    return node
+    return super.visitExpression(node)
   }
   visitLitteral(node: LitteralNode): LitteralNode {
     console.log(node)
