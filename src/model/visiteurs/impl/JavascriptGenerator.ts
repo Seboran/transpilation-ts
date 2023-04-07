@@ -1,4 +1,5 @@
 import AdditionNode from '../../AdditionNode.model'
+import AssignationNode from '../../AssignationNode.model'
 import ConditionNode from '../../ConditionNode.model'
 import MultiplicationNode from '../../MultiplicationNode.model'
 import SiNode from '../../SiNode.model'
@@ -11,6 +12,13 @@ export default class JavascriptGenerator
   extends AbstractGenerator
   implements CodeGenerator
 {
+  visitAssignation(node: AssignationNode): AssignationNode {
+    this.code += 'var '
+    this.visitLitteral(node.variable)
+    this.code += ' = '
+    this.visitExpression(node.expression)
+    return node
+  }
   visitAddition(node: AdditionNode): AdditionNode {
     this.visitExpression(node.a)
     this.code += ' + '

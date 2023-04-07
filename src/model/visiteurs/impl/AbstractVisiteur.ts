@@ -1,4 +1,5 @@
 import AdditionNode from '../../AdditionNode.model'
+import AssignationNode from '../../AssignationNode.model'
 import ConditionNode from '../../ConditionNode.model'
 import ExpressionNode from '../../ExpressionNode.model'
 import LitteralNode from '../../LitteralNode.model'
@@ -10,6 +11,7 @@ import SuperieurNode from '../../SuperieurNode.model'
 import VisiteurNode from '../VisiteurNode'
 
 export default abstract class AbstractVisiteur implements VisiteurNode {
+  abstract visitAssignation(node: AssignationNode): AssignationNode
   abstract visitNumberValue(node: number): number
   abstract visitString(node: string): string
   abstract visitAddition(node: AdditionNode): AdditionNode

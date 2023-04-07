@@ -1,4 +1,5 @@
 import AdditionNode from '../AdditionNode.model'
+import AssignationNode from '../AssignationNode.model'
 import ConditionNode from '../ConditionNode.model'
 import ExpressionNode from '../ExpressionNode.model'
 import LitteralNode from '../LitteralNode.model'
@@ -20,4 +21,5 @@ export default interface VisiteurNode {
   visitSuperieur(node: SuperieurNode): SuperieurNode
   visitString(node: string): string
   visitNumberValue(node: number): number
+  visitAssignation(node: AssignationNode): AssignationNode
 }

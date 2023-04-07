@@ -11,12 +11,16 @@ import SuperieurNode from '../../SuperieurNode.model'
 import VisiteurNode from '../VisiteurNode'
 import { applyMethodDecoratorToAllMethods } from '../../../decorators/applyMethodDecoratorToAllMethods'
 import AbstractVisiteur from './AbstractVisiteur'
+import AssignationNode from '../../AssignationNode.model'
 
 @applyMethodDecoratorToAllMethods(consolelogDecorator)
 export default class ConsoleLogVisiteur
   extends AbstractVisiteur
   implements VisiteurNode
 {
+  visitAssignation(node: AssignationNode): AssignationNode {
+    throw new Error('Method not implemented.')
+  }
   visitNumberValue(node: number): number {
     throw new Error('Method not implemented.')
   }

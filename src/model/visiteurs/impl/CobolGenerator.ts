@@ -1,4 +1,5 @@
 import AdditionNode from '../../AdditionNode.model'
+import AssignationNode from '../../AssignationNode.model'
 import ConditionNode from '../../ConditionNode.model'
 import LitteralNode from '../../LitteralNode.model'
 import MultiplicationNode from '../../MultiplicationNode.model'
@@ -14,6 +15,9 @@ export default class CobolGenerator
   extends AbstractGenerator
   implements CodeGenerator
 {
+  visitAssignation(node: AssignationNode): AssignationNode {
+    throw new Error('Method not implemented.')
+  }
   visitAddition(node: AdditionNode): AdditionNode {
     this.code += 'ADD '
     this.visitExpression(node.a)
