@@ -9,5 +9,6 @@ export default class SuperieurNode extends ExpressionNode {
   accept(visitor: VisiteurNode): void {
     visitor.visitExpression(this.a)
     visitor.visitExpression(this.b)
+    visitor.visitSuperieur(this)
   }
 }
