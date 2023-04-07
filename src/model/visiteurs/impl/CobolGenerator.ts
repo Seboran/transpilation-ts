@@ -6,34 +6,29 @@ import NumberNode from '../../NumberNode.model'
 import SiNode from '../../SiNode.model'
 import SoustractionNode from '../../SoustractionNode.model'
 import SuperieurNode from '../../SuperieurNode.model'
+import AbstractGenerator from './AbstractGenerator'
 import AbstractVisiteur from './AbstractVisiteur'
 import CodeGenerator from './CodeGenerator'
 
 export default class CobolGenerator
-  extends AbstractVisiteur
+  extends AbstractGenerator
   implements CodeGenerator
 {
-  visitNumberValue(node: number): number {
-    throw new Error('Method not implemented.')
-  }
-  visitString(node: string): string {
-    throw new Error('Method not implemented.')
-  }
   visitAddition(node: AdditionNode): AdditionNode {
-    throw new Error('Method not implemented.')
+    this.code += 'ADD '
+    this.visitExpression(node.a)
+    this.code += ' '
+    this.visitExpression(node.b)
+    return node
   }
   visitCondition(node: ConditionNode): ConditionNode {
     throw new Error('Method not implemented.')
   }
-  visitLitteral(node: LitteralNode): LitteralNode {
-    throw new Error('Method not implemented.')
-  }
+
   visitMultiplication(node: MultiplicationNode): MultiplicationNode {
     throw new Error('Method not implemented.')
   }
-  visitNumber(node: NumberNode): NumberNode {
-    throw new Error('Method not implemented.')
-  }
+
   visitSi(node: SiNode): SiNode {
     throw new Error('Method not implemented.')
   }
@@ -44,6 +39,6 @@ export default class CobolGenerator
     throw new Error('Method not implemented.')
   }
   print(): string {
-    throw new Error('Not implemented')
+    return this.code
   }
 }

@@ -7,6 +7,7 @@ import NumberNode from './model/NumberNode.model'
 import SiNode from './model/SiNode.model'
 import SoustractionNode from './model/SoustractionNode.model'
 import SuperieurNode from './model/SuperieurNode.model'
+import CobolGenerator from './model/visiteurs/impl/CobolGenerator'
 
 import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
 
@@ -36,3 +37,7 @@ const instructions: NodeModel = new SiNode(
 const javascriptGenerator = new JavascriptGenerator()
 instructions.accept(javascriptGenerator)
 console.log(javascriptGenerator.print())
+
+const cobolGenerator = new CobolGenerator()
+instructions.accept(cobolGenerator)
+console.log(cobolGenerator.print())
