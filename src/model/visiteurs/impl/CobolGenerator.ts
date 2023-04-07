@@ -39,7 +39,7 @@ export default class CobolGenerator
     this.visitCondition(node.condition)
     this.code += '\n  '
     this.visitExpression(node.conditionVraieExpression)
-    this.code += '\n  '
+    this.code += '\nELSE\n  '
     this.visitExpression(node.conditionFausseExpression)
     this.code += '\nEND-IF'
     return node
