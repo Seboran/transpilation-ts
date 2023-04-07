@@ -18,4 +18,5 @@ export default interface VisiteurNode {
   visitSi(node: SiNode): SiNode
   visitSoustraction(node: SoustractionNode): SoustractionNode
   visitSuperieur(node: SuperieurNode): SuperieurNode
+  visitString(node: string): string
 }

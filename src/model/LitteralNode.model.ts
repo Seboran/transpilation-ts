@@ -6,6 +6,7 @@ export default class LitteralNode extends ExpressionNode {
     super()
   }
   accept(visitor: VisiteurNode): void {
-    throw new Error('Method not implemented.')
+    visitor.visitString(this.name)
+    visitor.visitLitteral(this)
   }
 }
