@@ -11,8 +11,9 @@ export default class SiNode extends NodeModel {
     super()
   }
   accept(visitor: VisiteurNode): void {
-    this.condition.accept(visitor)
-    this.conditionVraieExpression.accept(visitor)
-    this.conditionFausseExpression.accept(visitor)
+    visitor.visitCondition(this.condition)
+    visitor.visitExpression(this.conditionVraieExpression)
+    visitor.visitExpression(this.conditionFausseExpression)
+    visitor.visitSi(this)
   }
 }
