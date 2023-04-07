@@ -45,7 +45,11 @@ export default class CobolGenerator
     return node
   }
   visitSoustraction(node: SoustractionNode): SoustractionNode {
-    throw new Error('Method not implemented.')
+    this.code += 'SUBTRACT '
+    this.visitExpression(node.a)
+    this.code += ' FROM '
+    this.visitExpression(node.b)
+    return node
   }
   visitSuperieur(node: SuperieurNode): SuperieurNode {
     throw new Error('Method not implemented.')
