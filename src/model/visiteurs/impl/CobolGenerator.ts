@@ -22,7 +22,8 @@ export default class CobolGenerator
     return node
   }
   visitCondition(node: ConditionNode): ConditionNode {
-    throw new Error('Method not implemented.')
+    this.visitExpression(node.value)
+    return node
   }
 
   visitMultiplication(node: MultiplicationNode): MultiplicationNode {
