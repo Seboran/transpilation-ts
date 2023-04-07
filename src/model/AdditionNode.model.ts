@@ -1,11 +1,13 @@
 import ExpressionNode from './ExpressionNode.model'
-import NodeModel from './Node.model'
+import VisiteurNode from './visiteurs/VisiteurNode'
 
 export default class AdditionNode extends ExpressionNode {
-  accept<T extends NodeModel>(visitor: any): T {
-    throw new Error('Method not implemented.')
-  }
   constructor(public a: ExpressionNode, public b: ExpressionNode) {
     super()
+  }
+  accept(visitor: VisiteurNode): void {
+    visitor.visitExpression(this.a)
+    visitor.visitExpression(this.b)
+    visitor.visitAddition(this)
   }
 }
