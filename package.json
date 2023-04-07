@@ -1,0 +1,24 @@
+{
+  "name": "transpilation-ts",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "rimraf dist && tsc-watch --onSuccess 'node dist/main.js'",
+    "test": "jest",
+    "build": "yarn format && yarn tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "precommit": "yarn format && yarn test && git add ."
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.7",
+    "rimraf": "^4.4.1",
+    "tsc-watch": "^6.0.0",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13"
+  }
+}
