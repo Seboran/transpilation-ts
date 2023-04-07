@@ -1,4 +1,3 @@
-import 'reflect-metadata'
 import AdditionNode from './model/AdditionNode.model'
 import ConditionNode from './model/ConditionNode.model'
 import LitteralNode from './model/LitteralNode.model'
@@ -9,11 +8,7 @@ import SiNode from './model/SiNode.model'
 import SoustractionNode from './model/SoustractionNode.model'
 import SuperieurNode from './model/SuperieurNode.model'
 
-import { Container } from 'inversify'
-import ConsoleLogVisiteur from './model/visiteurs/impl/ConsoleLogVisiteur'
 import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
-
-const container = new Container()
 
 /**
  * On veut représenter avec des nodes l'instruction suivante en pseudo code :
