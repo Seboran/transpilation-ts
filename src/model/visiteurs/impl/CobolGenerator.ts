@@ -1,4 +1,3 @@
-import { consolelogDecorator } from '../../../decorators/consolelogDecorator'
 import AdditionNode from '../../AdditionNode.model'
 import ConditionNode from '../../ConditionNode.model'
 import LitteralNode from '../../LitteralNode.model'
@@ -10,69 +9,41 @@ import SuperieurNode from '../../SuperieurNode.model'
 import AbstractVisiteur from './AbstractVisiteur'
 import CodeGenerator from './CodeGenerator'
 
-export default class JavascriptGenerator
+export default class CobolGenerator
   extends AbstractVisiteur
   implements CodeGenerator
 {
-  private code = ''
   visitNumberValue(node: number): number {
-    this.code += '' + node
-    return node
+    throw new Error('Method not implemented.')
   }
   visitString(node: string): string {
-    this.code += '' + node
-    return node
+    throw new Error('Method not implemented.')
   }
   visitAddition(node: AdditionNode): AdditionNode {
-    this.visitExpression(node.a)
-    this.code += ' + '
-    this.visitExpression(node.b)
-    return node
+    throw new Error('Method not implemented.')
   }
   visitCondition(node: ConditionNode): ConditionNode {
-    this.visitExpression(node.value)
-    return node
+    throw new Error('Method not implemented.')
   }
   visitLitteral(node: LitteralNode): LitteralNode {
-    this.visitString(node.name)
-    return node
+    throw new Error('Method not implemented.')
   }
   visitMultiplication(node: MultiplicationNode): MultiplicationNode {
-    this.visitExpression(node.a)
-    this.code += ' * '
-    this.visitExpression(node.b)
-    return node
+    throw new Error('Method not implemented.')
   }
   visitNumber(node: NumberNode): NumberNode {
-    this.visitNumberValue(node.value)
-    return node
+    throw new Error('Method not implemented.')
   }
   visitSi(node: SiNode): SiNode {
-    this.code += 'if ('
-    this.visitCondition(node.condition)
-
-    this.code += ') { '
-
-    this.visitExpression(node.conditionVraieExpression)
-    this.code += ' } else { '
-    this.visitExpression(node.conditionFausseExpression)
-    this.code += ' }'
-    return node
+    throw new Error('Method not implemented.')
   }
   visitSoustraction(node: SoustractionNode): SoustractionNode {
-    this.visitExpression(node.a)
-    this.code += ' - '
-    this.visitExpression(node.b)
-    return node
+    throw new Error('Method not implemented.')
   }
   visitSuperieur(node: SuperieurNode): SuperieurNode {
-    this.visitExpression(node.a)
-    this.code += ' > '
-    this.visitExpression(node.b)
-    return node
+    throw new Error('Method not implemented.')
   }
-
   print(): string {
-    return 'Code source js : ' + this.code
+    throw new Error('Not implemented')
   }
 }

@@ -9,7 +9,7 @@ import SoustractionNode from '../../SoustractionNode.model'
 import SuperieurNode from '../../SuperieurNode.model'
 import VisiteurNode from '../VisiteurNode'
 
-export default abstract class AbastractVisiteur implements VisiteurNode {
+export default abstract class AbstractVisiteur implements VisiteurNode {
   abstract visitNumberValue(node: number): number
   abstract visitString(node: string): string
   abstract visitAddition(node: AdditionNode): AdditionNode
