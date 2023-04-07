@@ -18,6 +18,7 @@ import SoustractionNode from './model/SoustractionNode.model'
 import SuperieurNode from './model/SuperieurNode.model'
 
 import { Container } from 'inversify'
+import ConsoleLogVisiteur from './model/visiteurs/impl/ConsoleLogVisiteur'
 
 const container = new Container()
 
@@ -36,3 +37,7 @@ const instructions: NodeModel = new SiNode(
 )
 
 console.log(instructions)
+
+const consoleLogVisiteur = new ConsoleLogVisiteur()
+
+instructions.accept(consoleLogVisiteur)
