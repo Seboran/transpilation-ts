@@ -36,8 +36,6 @@ const instructions: NodeModel = new SiNode(
   )
 )
 
-console.log(instructions)
-
 const consoleLogVisiteur = new ConsoleLogVisiteur()
 
 instructions.accept(consoleLogVisiteur)
