@@ -11,7 +11,7 @@ import SuperieurNode from './model/SuperieurNode.model'
 
 import { Container } from 'inversify'
 import ConsoleLogVisiteur from './model/visiteurs/impl/ConsoleLogVisiteur'
-import JavascriptGenerator from './model/visiteurs/impl/ToCodeVisiteur'
+import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
 
 const container = new Container()
 

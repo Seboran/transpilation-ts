@@ -9,7 +9,7 @@ import SoustractionNode from '../../SoustractionNode.model'
 import SuperieurNode from '../../SuperieurNode.model'
 import AbastractVisiteur from './AbstractVisiteur'
 
-export default class ToCodeVisiteur extends AbastractVisiteur {
+export default class JavascriptGenerator extends AbastractVisiteur {
   private code = ''
   visitNumberValue(node: number): number {
     this.code += '' + node
