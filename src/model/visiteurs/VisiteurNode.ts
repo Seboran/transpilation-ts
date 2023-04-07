@@ -19,4 +19,5 @@ export default interface VisiteurNode {
   visitSoustraction(node: SoustractionNode): SoustractionNode
   visitSuperieur(node: SuperieurNode): SuperieurNode
   visitString(node: string): string
+  visitNumberValue(node: number): number
 }

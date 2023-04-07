@@ -6,6 +6,7 @@ export default class NumberNode extends ExpressionNode {
     super()
   }
   accept(visitor: VisiteurNode): void {
-    throw new Error('Method not implemented.')
+    visitor.visitNumberValue(this.value)
+    visitor.visitNumber(this)
   }
 }

@@ -10,6 +10,9 @@ import SuperieurNode from '../../SuperieurNode.model'
 import VisiteurNode from '../VisiteurNode'
 
 export default class ConsoleLogVisiteur implements VisiteurNode {
+  visitNumberValue(node: number): number {
+    throw new Error('Method not implemented.')
+  }
   visitAddition(node: AdditionNode): AdditionNode {
     console.log('visiteur in')
     console.log(node)
