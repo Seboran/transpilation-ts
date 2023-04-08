@@ -1,17 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "ESNext",
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
     "outDir": "dist",
     "typeRoots": ["./node_modules/@types"],
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "baseUrl": "src"
   },
   "include": [
     "src/**/*.ts"
-  ],
-  "exclude": [
-    "**/__tests__/**/*.ts"
   ]
 }

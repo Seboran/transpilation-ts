@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "rimraf dist && tsc-watch --onSuccess 'node dist/main.js'",
-    "test": "jest",
+    "start": "rimraf dist && tsc-watch --sourceMap --onSuccess 'node dist/main.js'",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "build": "yarn format && yarn tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "precommit": "yarn format && yarn test && git add ."
