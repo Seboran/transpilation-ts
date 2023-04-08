@@ -10,6 +10,7 @@ import SiNoeud from '../../../SiNoeud.model'
 import SoustractionNoeud from '../../../SoustractionNoeud.model'
 import SuperieurNoeud from '../../../SuperieurNoeud.model'
 import JavascriptGenerator from '../JavascriptGenerator'
+import ExpressionsNoeud from '../../../ExpressionsNoeud.model'
 
 describe('Javascript Générateur', () => {
   test('Génére le bon javascript 1', () => {
@@ -47,5 +48,15 @@ describe('Javascript Générateur', () => {
     instructions.accept(javascriptGenerator)
 
     expect(javascriptGenerator.print()).toEqual('var bonjour = 2 + salut')
+  })
+  test("Liste d'expressions", () => {
+    const javascriptGenerator = new JavascriptGenerator()
+    const instructions: NoeudModel = new ExpressionsNoeud(
+      new LitteralNoeud('2'),
+      new LitteralNoeud('3')
+    )
+
+    instructions.accept(javascriptGenerator)
+    expect(javascriptGenerator.print()).toEqual('2; 3;')
   })
 })
