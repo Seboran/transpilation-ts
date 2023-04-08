@@ -63,6 +63,6 @@ export default class JavascriptGenerator
   }
 
   print(): string {
-    return 'Code source js : ' + this.code
+    return this.code
   }
 }
