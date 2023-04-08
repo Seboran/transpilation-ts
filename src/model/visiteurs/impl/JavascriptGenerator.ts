@@ -3,6 +3,7 @@ import AssignationNoeud from '../../AssignationNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
 import ExpressionNoeud from '../../ExpressionNoeud.model'
 import ExpressionsNoeud from '../../ExpressionsNoeud.model'
+import FonctionNoeud from '../../FonctionNoeud.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
 import SiNoeud from '../../SiNoeud.model'
 import SoustractionNoeud from '../../SoustractionNoeud.model'
@@ -14,6 +15,23 @@ export default class JavascriptGenerator
   extends AbstractGenerateur
   implements CodeGenerator
 {
+  visitFonction(node: FonctionNoeud): FonctionNoeud {
+    this.visitLitteral(node.nom)
+    this.code += '('
+    node.args.forEach(this.visitArgument.bind(this))
+    this.code += ')'
+    return node
+  }
+  visitArgument(
+    node: ExpressionNoeud,
+    index: number,
+    array: ExpressionNoeud[]
+  ) {
+    this.visitExpression(node)
+    if (index + 1 != array.length) {
+      this.code += ','
+    }
+  }
   visitExpressions(node: ExpressionsNoeud): ExpressionsNoeud {
     node.expressions.forEach(this.visitExpressionLocal.bind(this))
     return node

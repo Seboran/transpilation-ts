@@ -11,6 +11,7 @@ import SoustractionNoeud from '../../../SoustractionNoeud.model'
 import SuperieurNoeud from '../../../SuperieurNoeud.model'
 import JavascriptGenerator from '../JavascriptGenerator'
 import ExpressionsNoeud from '../../../ExpressionsNoeud.model'
+import FonctionNoeud from '../../../FonctionNoeud.model'
 
 describe('Javascript Générateur', () => {
   test('Génére le bon javascript 1', () => {
