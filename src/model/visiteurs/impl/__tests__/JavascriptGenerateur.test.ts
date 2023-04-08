@@ -36,4 +36,16 @@ describe('Javascript Générateur', () => {
       'if (X > Y) { var Z = 2 + 5 * 3 } else { 2 + 5 - 3 }'
     )
   })
+  test('Assignation', () => {
+    const javascriptGenerator = new JavascriptGenerator()
+
+    const instructions: AssignationNoeud = new AssignationNoeud(
+      new LitteralNoeud('bonjour'),
+      new AdditionNoeud(new NumberNoeud(2), new LitteralNoeud('salut'))
+    )
+
+    instructions.accept(javascriptGenerator)
+
+    expect(javascriptGenerator.print()).toEqual('var bonjour = 2 + salut')
+  })
 })
