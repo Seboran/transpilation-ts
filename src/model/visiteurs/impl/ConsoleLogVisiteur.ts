@@ -1,24 +1,24 @@
 import { consolelogDecorator } from '../../../decorators/consolelogDecorator'
 import AdditionNoeud from '../../AdditionNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
-import ExpressionNode from '../../ExpressionNode.model'
+import ExpressionNoeud from '../../ExpressionNoeud.model'
 import LitteralNode from '../../LitteralNode.model'
 import MultiplicationNode from '../../MultiplicationNode.model'
 import NumberNode from '../../NumberNode.model'
 import SiNode from '../../SiNode.model'
 import SoustractionNode from '../../SoustractionNode.model'
 import SuperieurNode from '../../SuperieurNode.model'
-import VisiteurNode from '../VisiteurNode'
+import VisiteurNoeud from '../VisiteurNoeud'
 import { applyMethodDecoratorToAllMethods } from '../../../decorators/applyMethodDecoratorToAllMethods'
 import AbstractVisiteur from './AbstractVisiteur'
-import AssignationNode from '../../AssignationNode.model'
+import AssignationNoeud from '../../AssignationNoeud.model'
 
 @applyMethodDecoratorToAllMethods(consolelogDecorator)
 export default class ConsoleLogVisiteur
   extends AbstractVisiteur
-  implements VisiteurNode
+  implements VisiteurNoeud
 {
-  visitAssignation(node: AssignationNode): AssignationNode {
+  visitAssignation(node: AssignationNoeud): AssignationNoeud {
     throw new Error('Method not implemented.')
   }
   visitNumberValue(node: number): number {
@@ -36,7 +36,7 @@ export default class ConsoleLogVisiteur
     console.log(node)
     return node
   }
-  visitExpression(node: ExpressionNode): ExpressionNode {
+  visitExpression(node: ExpressionNoeud): ExpressionNoeud {
     return super.visitExpression(node)
   }
   visitLitteral(node: LitteralNode): LitteralNode {

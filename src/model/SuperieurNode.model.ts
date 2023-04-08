@@ -1,12 +1,12 @@
-import ExpressionNode from './ExpressionNode.model'
+import ExpressionNoeud from './ExpressionNoeud.model'
 import NoeudModel from './Noeud.model'
-import VisiteurNode from './visiteurs/VisiteurNode'
+import VisiteurNoeud from './visiteurs/VisiteurNoeud'
 
-export default class SuperieurNode extends ExpressionNode {
-  constructor(public a: ExpressionNode, public b: ExpressionNode) {
+export default class SuperieurNode extends ExpressionNoeud {
+  constructor(public a: ExpressionNoeud, public b: ExpressionNoeud) {
     super()
   }
-  accept(visitor: VisiteurNode): void {
+  accept(visitor: VisiteurNoeud): void {
     visitor.visitExpression(this.a)
     visitor.visitExpression(this.b)
     visitor.visitSuperieur(this)

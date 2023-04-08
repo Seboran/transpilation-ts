@@ -1,6 +1,6 @@
 import ConditionNode from './ConditionNode.model'
 import NoeudModel from './Noeud.model'
-import VisiteurNode from './visiteurs/VisiteurNode'
+import VisiteurNoeud from './visiteurs/VisiteurNoeud'
 
 export default class SiNode extends NoeudModel {
   constructor(
@@ -10,7 +10,7 @@ export default class SiNode extends NoeudModel {
   ) {
     super()
   }
-  accept(visitor: VisiteurNode): void {
+  accept(visitor: VisiteurNoeud): void {
     visitor.visitSi(this)
   }
 }

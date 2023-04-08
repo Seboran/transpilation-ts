@@ -1,12 +1,12 @@
-import ExpressionNode from './ExpressionNode.model'
+import ExpressionNoeud from './ExpressionNoeud.model'
 import NoeudModel from './Noeud.model'
-import VisiteurNode from './visiteurs/VisiteurNode'
+import VisiteurNoeud from './visiteurs/VisiteurNoeud'
 
 export default class ConditionNode extends NoeudModel {
-  constructor(public value: ExpressionNode) {
+  constructor(public value: ExpressionNoeud) {
     super()
   }
-  accept(visitor: VisiteurNode): void {
+  accept(visitor: VisiteurNoeud): void {
     visitor.visitExpression(this.value)
     visitor.visitCondition(this)
   }

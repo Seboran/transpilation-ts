@@ -1,5 +1,5 @@
 import AdditionNoeud from '../../AdditionNoeud.model'
-import AssignationNode from '../../AssignationNode.model'
+import AssignationNoeud from '../../AssignationNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
 import MultiplicationNode from '../../MultiplicationNode.model'
 import SiNode from '../../SiNode.model'
@@ -12,7 +12,7 @@ export default class JavascriptGenerator
   extends AbstractGenerator
   implements CodeGenerator
 {
-  visitAssignation(node: AssignationNode): AssignationNode {
+  visitAssignation(node: AssignationNoeud): AssignationNoeud {
     this.code += 'var '
     this.visitLitteral(node.variable)
     this.code += ' = '

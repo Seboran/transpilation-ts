@@ -1,22 +1,22 @@
 import AdditionNoeud from '../../AdditionNoeud.model'
-import AssignationNode from '../../AssignationNode.model'
+import AssignationNoeud from '../../AssignationNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
-import ExpressionNode from '../../ExpressionNode.model'
+import ExpressionNoeud from '../../ExpressionNoeud.model'
 import LitteralNode from '../../LitteralNode.model'
 import MultiplicationNode from '../../MultiplicationNode.model'
 import NumberNode from '../../NumberNode.model'
 import SiNode from '../../SiNode.model'
 import SoustractionNode from '../../SoustractionNode.model'
 import SuperieurNode from '../../SuperieurNode.model'
-import VisiteurNode from '../VisiteurNode'
+import VisiteurNoeud from '../VisiteurNoeud'
 
-export default abstract class AbstractVisiteur implements VisiteurNode {
-  abstract visitAssignation(node: AssignationNode): AssignationNode
+export default abstract class AbstractVisiteur implements VisiteurNoeud {
+  abstract visitAssignation(node: AssignationNoeud): AssignationNoeud
   abstract visitNumberValue(node: number): number
   abstract visitString(node: string): string
   abstract visitAddition(node: AdditionNoeud): AdditionNoeud
   abstract visitCondition(node: ConditionNode): ConditionNode
-  visitExpression(node: ExpressionNode): ExpressionNode {
+  visitExpression(node: ExpressionNoeud): ExpressionNoeud {
     if (node instanceof AdditionNoeud) {
       return this.visitAddition(node)
     } else if (node instanceof ConditionNode) {
@@ -33,7 +33,7 @@ export default abstract class AbstractVisiteur implements VisiteurNode {
       return this.visitSoustraction(node)
     } else if (node instanceof SuperieurNode) {
       return this.visitSuperieur(node)
-    } else if (node instanceof AssignationNode) {
+    } else if (node instanceof AssignationNoeud) {
       return this.visitAssignation(node)
     } else {
       throw new Error('Expression inconnue')

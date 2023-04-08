@@ -1,11 +1,11 @@
-import ExpressionNode from './ExpressionNode.model'
-import VisiteurNode from './visiteurs/VisiteurNode'
+import ExpressionNoeud from './ExpressionNoeud.model'
+import VisiteurNoeud from './visiteurs/VisiteurNoeud'
 
-export default class NumberNode extends ExpressionNode {
+export default class NumberNode extends ExpressionNoeud {
   constructor(public value: number) {
     super()
   }
-  accept(visitor: VisiteurNode): void {
+  accept(visitor: VisiteurNoeud): void {
     visitor.visitNumberValue(this.value)
     visitor.visitNumber(this)
   }

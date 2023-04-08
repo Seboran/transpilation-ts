@@ -1,5 +1,5 @@
 import AdditionNoeud from './model/AdditionNoeud.model'
-import AssignationNode from './model/AssignationNode.model'
+import AssignationNoeud from './model/AssignationNoeud.model'
 import ConditionNode from './model/ConditionNode.model'
 import LitteralNode from './model/LitteralNode.model'
 import MultiplicationNode from './model/MultiplicationNode.model'
@@ -24,7 +24,7 @@ const instructions: NoeudModel = new SiNode(
   new ConditionNode(
     new SuperieurNode(new LitteralNode('X'), new LitteralNode('Y'))
   ),
-  new AssignationNode(
+  new AssignationNoeud(
     new LitteralNode('Z'),
     new AdditionNoeud(
       new NumberNode(2),
