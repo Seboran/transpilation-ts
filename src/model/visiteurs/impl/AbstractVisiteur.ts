@@ -39,6 +39,8 @@ export default abstract class AbstractVisiteur implements VisiteurNoeud {
       return this.visitSuperieur(node)
     } else if (node instanceof AssignationNoeud) {
       return this.visitAssignation(node)
+    } else if (node instanceof FonctionNoeud) {
+      return this.visitFonction(node)
     } else {
       throw new Error('Expression inconnue')
     }

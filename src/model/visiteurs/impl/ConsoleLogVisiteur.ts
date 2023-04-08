@@ -13,12 +13,16 @@ import { applyMethodDecoratorToAllMethods } from '../../../decorators/applyMetho
 import AbstractVisiteur from './AbstractVisiteur'
 import AssignationNoeud from '../../AssignationNoeud.model'
 import ExpressionsNoeud from '../../ExpressionsNoeud.model'
+import FonctionNoeud from '../../FonctionNoeud.model'
 
 @applyMethodDecoratorToAllMethods(consolelogDecorator)
 export default class ConsoleLogVisiteur
   extends AbstractVisiteur
   implements VisiteurNoeud
 {
+  visitFonction(node: FonctionNoeud): FonctionNoeud {
+    throw new Error('Method not implemented.')
+  }
   visitExpressions(node: ExpressionsNoeud): ExpressionsNoeud {
     throw new Error('Method not implemented.')
   }

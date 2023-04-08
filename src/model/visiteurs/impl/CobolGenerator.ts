@@ -2,6 +2,7 @@ import AdditionNoeud from '../../AdditionNoeud.model'
 import AssignationNoeud from '../../AssignationNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
 import ExpressionsNoeud from '../../ExpressionsNoeud.model'
+import FonctionNoeud from '../../FonctionNoeud.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
 import SiNoeud from '../../SiNoeud.model'
 import SoustractionNoeud from '../../SoustractionNoeud.model'
@@ -13,6 +14,9 @@ export default class CobolGenerator
   extends AbstractGenerateur
   implements CodeGenerator
 {
+  visitFonction(node: FonctionNoeud): FonctionNoeud {
+    throw new Error('Method not implemented.')
+  }
   visitExpressions(node: ExpressionsNoeud): ExpressionsNoeud {
     throw new Error('Method not implemented.')
   }
