@@ -1,5 +1,5 @@
 import LitteralNoeud from '../../LitteralNoeud.model'
-import NumberNoeud from '../../NumberNoeud.model'
+import NombreNoeud from '../../NombreNoeud.model'
 import AbstractVisiteur from './AbstractVisiteur'
 import CodeGenerator from './CodeGenerator'
 
@@ -21,7 +21,7 @@ export default abstract class AbstractGenerateur
     this.visitString(node.name)
     return node
   }
-  visitNumber(node: NumberNoeud): NumberNoeud {
+  visitNumber(node: NombreNoeud): NombreNoeud {
     this.visitNumberValue(node.value)
     return node
   }

@@ -6,7 +6,7 @@ import FonctionNoeud from './model/FonctionNoeud.model'
 import LitteralNoeud from './model/LitteralNoeud.model'
 import MultiplicationNoeud from './model/MultiplicationNoeud.model'
 import NoeudModel from './model/Noeud.model'
-import NumberNoeud from './model/NumberNoeud.model'
+import NombreNoeud from './model/NombreNoeud.model'
 import SiNoeud from './model/SiNoeud.model'
 import SoustractionNoeud from './model/SoustractionNoeud.model'
 import SuperieurNoeud from './model/SuperieurNoeud.model'
@@ -30,13 +30,13 @@ const siNoeud = new SiNoeud(
   new AssignationNoeud(
     new LitteralNoeud('Z'),
     new AdditionNoeud(
-      new NumberNoeud(2),
-      new MultiplicationNoeud(new NumberNoeud(5), new NumberNoeud(3))
+      new NombreNoeud(2),
+      new MultiplicationNoeud(new NombreNoeud(5), new NombreNoeud(3))
     )
   ),
   new AdditionNoeud(
-    new NumberNoeud(2),
-    new SoustractionNoeud(new NumberNoeud(5), new NumberNoeud(3))
+    new NombreNoeud(2),
+    new SoustractionNoeud(new NombreNoeud(5), new NombreNoeud(3))
   )
 )
 /**

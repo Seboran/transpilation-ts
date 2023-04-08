@@ -6,7 +6,7 @@ import ExpressionsNoeud from '../ExpressionsNoeud.model'
 import FonctionNoeud from '../FonctionNoeud.model'
 import LitteralNoeud from '../LitteralNoeud.model'
 import MultiplicationNoeud from '../MultiplicationNoeud.model'
-import NumberNoeud from '../NumberNoeud.model'
+import NombreNoeud from '../NombreNoeud.model'
 import SiNoeud from '../SiNoeud.model'
 import SoustractionNoeud from '../SoustractionNoeud.model'
 import SuperieurNoeud from '../SuperieurNoeud.model'
@@ -15,7 +15,7 @@ export default interface VisiteurNoeud {
   visitFonction(node: FonctionNoeud): FonctionNoeud
   visitExpressions(node: ExpressionsNoeud): ExpressionsNoeud
   visitAddition(node: AdditionNoeud): AdditionNoeud
-  visitNumber(node: NumberNoeud): NumberNoeud
+  visitNumber(node: NombreNoeud): NombreNoeud
   visitCondition(node: ConditionNode): ConditionNode
   visitExpression(node: ExpressionNoeud): ExpressionNoeud
   visitLitteral(node: LitteralNoeud): LitteralNoeud

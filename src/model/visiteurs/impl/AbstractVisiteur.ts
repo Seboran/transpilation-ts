@@ -6,7 +6,7 @@ import ExpressionsNoeud from '../../ExpressionsNoeud.model'
 import FonctionNoeud from '../../FonctionNoeud.model'
 import LitteralNoeud from '../../LitteralNoeud.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
-import NumberNoeud from '../../NumberNoeud.model'
+import NombreNoeud from '../../NombreNoeud.model'
 import SiNoeud from '../../SiNoeud.model'
 import SoustractionNoeud from '../../SoustractionNoeud.model'
 import SuperieurNoeud from '../../SuperieurNoeud.model'
@@ -29,7 +29,7 @@ export default abstract class AbstractVisiteur implements VisiteurNoeud {
       return this.visitLitteral(node)
     } else if (node instanceof MultiplicationNoeud) {
       return this.visitMultiplication(node)
-    } else if (node instanceof NumberNoeud) {
+    } else if (node instanceof NombreNoeud) {
       return this.visitNumber(node)
     } else if (node instanceof SiNoeud) {
       return this.visitSi(node)
@@ -47,7 +47,7 @@ export default abstract class AbstractVisiteur implements VisiteurNoeud {
   }
   abstract visitLitteral(node: LitteralNoeud): LitteralNoeud
   abstract visitMultiplication(node: MultiplicationNoeud): MultiplicationNoeud
-  abstract visitNumber(node: NumberNoeud): NumberNoeud
+  abstract visitNumber(node: NombreNoeud): NombreNoeud
   abstract visitSi(node: SiNoeud): SiNoeud
   abstract visitSoustraction(node: SoustractionNoeud): SoustractionNoeud
   abstract visitSuperieur(node: SuperieurNoeud): SuperieurNoeud

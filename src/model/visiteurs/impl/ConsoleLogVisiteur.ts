@@ -4,7 +4,7 @@ import ConditionNode from '../../ConditionNode.model'
 import ExpressionNoeud from '../../ExpressionNoeud.model'
 import LitteralNoeud from '../../LitteralNoeud.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
-import NumberNoeud from '../../NumberNoeud.model'
+import NombreNoeud from '../../NombreNoeud.model'
 import SiNoeud from '../../SiNoeud.model'
 import SoustractionNoeud from '../../SoustractionNoeud.model'
 import SuperieurNoeud from '../../SuperieurNoeud.model'
@@ -36,7 +36,7 @@ export default class ConsoleLogVisiteur
     console.log(node)
     return node
   }
-  visitNumber(node: NumberNoeud): NumberNoeud {
+  visitNumber(node: NombreNoeud): NombreNoeud {
     console.log(node)
     return node
   }

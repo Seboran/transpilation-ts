@@ -5,7 +5,7 @@ import AssignationNoeud from '../../../AssignationNoeud.model'
 import ConditionNode from '../../../ConditionNode.model'
 import LitteralNoeud from '../../../LitteralNoeud.model'
 import MultiplicationNoeud from '../../../MultiplicationNoeud.model'
-import NumberNoeud from '../../../NumberNoeud.model'
+import NombreNoeud from '../../../NombreNoeud.model'
 import SiNoeud from '../../../SiNoeud.model'
 import SoustractionNoeud from '../../../SoustractionNoeud.model'
 import SuperieurNoeud from '../../../SuperieurNoeud.model'
@@ -22,13 +22,13 @@ describe('Javascript Générateur', () => {
       new AssignationNoeud(
         new LitteralNoeud('Z'),
         new AdditionNoeud(
-          new NumberNoeud(2),
-          new MultiplicationNoeud(new NumberNoeud(5), new NumberNoeud(3))
+          new NombreNoeud(2),
+          new MultiplicationNoeud(new NombreNoeud(5), new NombreNoeud(3))
         )
       ),
       new AdditionNoeud(
-        new NumberNoeud(2),
-        new SoustractionNoeud(new NumberNoeud(5), new NumberNoeud(3))
+        new NombreNoeud(2),
+        new SoustractionNoeud(new NombreNoeud(5), new NombreNoeud(3))
       )
     )
 
@@ -43,7 +43,7 @@ describe('Javascript Générateur', () => {
 
     const instructions: AssignationNoeud = new AssignationNoeud(
       new LitteralNoeud('bonjour'),
-      new AdditionNoeud(new NumberNoeud(2), new LitteralNoeud('salut'))
+      new AdditionNoeud(new NombreNoeud(2), new LitteralNoeud('salut'))
     )
 
     instructions.accept(javascriptGenerator)
@@ -55,7 +55,7 @@ describe('Javascript Générateur', () => {
 
     const instructions: AssignationNoeud = new AssignationNoeud(
       new LitteralNoeud('bonjour'),
-      new NumberNoeud(2),
+      new NombreNoeud(2),
       'final'
     )
 
@@ -91,9 +91,9 @@ describe('Javascript Générateur', () => {
   test("Liste d'expressions 2", () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instructions: NoeudModel = new ExpressionsNoeud(
-      new AssignationNoeud(new LitteralNoeud('x'), new NumberNoeud(2)),
-      new AssignationNoeud(new LitteralNoeud('x'), new NumberNoeud(3)),
-      new AdditionNoeud(new NumberNoeud(2), new NumberNoeud(2))
+      new AssignationNoeud(new LitteralNoeud('x'), new NombreNoeud(2)),
+      new AssignationNoeud(new LitteralNoeud('x'), new NombreNoeud(3)),
+      new AdditionNoeud(new NombreNoeud(2), new NombreNoeud(2))
     )
 
     instructions.accept(javascriptGenerator)
@@ -103,8 +103,8 @@ describe('Javascript Générateur', () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instruction: NoeudModel = new FonctionNoeud(
       new LitteralNoeud('mafonction'),
-      new NumberNoeud(2),
-      new NumberNoeud(3)
+      new NombreNoeud(2),
+      new NombreNoeud(3)
     )
     instruction.accept(javascriptGenerator)
     expect(javascriptGenerator.print()).toEqual('mafonction(2,3)')
@@ -124,5 +124,12 @@ describe('Javascript Générateur', () => {
     )
     instructions.accept(javascriptGenerator)
     expect(javascriptGenerator.print()).toEqual('2 * 3')
+  })
+  test('Nombre', () => {
+    const javascriptGenerator = new JavascriptGenerator()
+    const instruction: NoeudModel = new NombreNoeud(2)
+
+    instruction.accept(javascriptGenerator)
+    expect(javascriptGenerator.print()).toEqual('2')
   })
 })
