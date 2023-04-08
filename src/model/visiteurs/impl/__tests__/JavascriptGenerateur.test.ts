@@ -83,4 +83,14 @@ describe('Javascript Générateur', () => {
     instructions.accept(javascriptGenerator)
     expect(javascriptGenerator.print()).toEqual('var x = 2; var x = 3; 2 + 2;')
   })
+  test('Fonction 1', () => {
+    const javascriptGenerator = new JavascriptGenerator()
+    const instruction: NoeudModel = new FonctionNoeud(
+      new LitteralNoeud('mafonction'),
+      new NumberNoeud(2),
+      new NumberNoeud(3)
+    )
+    instruction.accept(javascriptGenerator)
+    expect(javascriptGenerator.print()).toEqual('mafonction(2,3)')
+  })
 })
