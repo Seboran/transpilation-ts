@@ -5,7 +5,7 @@ import ExpressionNoeud from '../../ExpressionNoeud.model'
 import LitteralNoeud from '../../LitteralNoeud.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
 import NumberNoeud from '../../NumberNoeud.model'
-import SiNode from '../../SiNode.model'
+import SiNoeud from '../../SiNoeud.model'
 import SoustractionNode from '../../SoustractionNode.model'
 import SuperieurNode from '../../SuperieurNode.model'
 import VisiteurNoeud from '../VisiteurNoeud'
@@ -47,7 +47,7 @@ export default class ConsoleLogVisiteur
     console.log(node)
     return node
   }
-  visitSi(node: SiNode): SiNode {
+  visitSi(node: SiNoeud): SiNoeud {
     console.log(node)
     return node
   }

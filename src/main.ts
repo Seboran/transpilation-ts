@@ -5,7 +5,7 @@ import LitteralNoeud from './model/LitteralNoeud.model'
 import MultiplicationNoeud from './model/MultiplicationNoeud.model'
 import NoeudModel from './model/Noeud.model'
 import NumberNoeud from './model/NumberNoeud.model'
-import SiNode from './model/SiNode.model'
+import SiNoeud from './model/SiNoeud.model'
 import SoustractionNode from './model/SoustractionNode.model'
 import SuperieurNode from './model/SuperieurNode.model'
 
@@ -20,7 +20,7 @@ import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
  *   2 + (5 - 3)
  */
 
-const instructions: NoeudModel = new SiNode(
+const instructions: NoeudModel = new SiNoeud(
   new ConditionNode(
     new SuperieurNode(new LitteralNoeud('X'), new LitteralNoeud('Y'))
   ),

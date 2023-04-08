@@ -2,7 +2,7 @@ import AdditionNoeud from '../../AdditionNoeud.model'
 import AssignationNoeud from '../../AssignationNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
-import SiNode from '../../SiNode.model'
+import SiNoeud from '../../SiNoeud.model'
 import SoustractionNode from '../../SoustractionNode.model'
 import SuperieurNode from '../../SuperieurNode.model'
 import AbstractGenerator from './AbstractGenerator'
@@ -37,7 +37,7 @@ export default class JavascriptGenerator
     return node
   }
 
-  visitSi(node: SiNode): SiNode {
+  visitSi(node: SiNoeud): SiNoeud {
     this.code += 'if ('
     this.visitCondition(node.condition)
 
