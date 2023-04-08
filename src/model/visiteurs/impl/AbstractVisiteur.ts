@@ -3,7 +3,7 @@ import AssignationNoeud from '../../AssignationNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
 import ExpressionNoeud from '../../ExpressionNoeud.model'
 import LitteralNoeud from '../../LitteralNoeud.model'
-import MultiplicationNode from '../../MultiplicationNode.model'
+import MultiplicationNoeud from '../../MultiplicationNoeud.model'
 import NumberNode from '../../NumberNode.model'
 import SiNode from '../../SiNode.model'
 import SoustractionNode from '../../SoustractionNode.model'
@@ -23,7 +23,7 @@ export default abstract class AbstractVisiteur implements VisiteurNoeud {
       return this.visitCondition(node)
     } else if (node instanceof LitteralNoeud) {
       return this.visitLitteral(node)
-    } else if (node instanceof MultiplicationNode) {
+    } else if (node instanceof MultiplicationNoeud) {
       return this.visitMultiplication(node)
     } else if (node instanceof NumberNode) {
       return this.visitNumber(node)
@@ -40,7 +40,7 @@ export default abstract class AbstractVisiteur implements VisiteurNoeud {
     }
   }
   abstract visitLitteral(node: LitteralNoeud): LitteralNoeud
-  abstract visitMultiplication(node: MultiplicationNode): MultiplicationNode
+  abstract visitMultiplication(node: MultiplicationNoeud): MultiplicationNoeud
   abstract visitNumber(node: NumberNode): NumberNode
   abstract visitSi(node: SiNode): SiNode
   abstract visitSoustraction(node: SoustractionNode): SoustractionNode

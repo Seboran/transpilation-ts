@@ -1,7 +1,7 @@
 import AdditionNoeud from '../../AdditionNoeud.model'
 import AssignationNoeud from '../../AssignationNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
-import MultiplicationNode from '../../MultiplicationNode.model'
+import MultiplicationNoeud from '../../MultiplicationNoeud.model'
 import SiNode from '../../SiNode.model'
 import SoustractionNode from '../../SoustractionNode.model'
 import SuperieurNode from '../../SuperieurNode.model'
@@ -30,7 +30,7 @@ export default class JavascriptGenerator
     return node
   }
 
-  visitMultiplication(node: MultiplicationNode): MultiplicationNode {
+  visitMultiplication(node: MultiplicationNoeud): MultiplicationNoeud {
     this.visitExpression(node.a)
     this.code += ' * '
     this.visitExpression(node.b)
