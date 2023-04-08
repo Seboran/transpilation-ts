@@ -7,7 +7,7 @@ import NoeudModel from './model/Noeud.model'
 import NumberNoeud from './model/NumberNoeud.model'
 import SiNoeud from './model/SiNoeud.model'
 import SoustractionNoeud from './model/SoustractionNoeud.model'
-import SuperieurNode from './model/SuperieurNode.model'
+import SuperieurNoeud from './model/SuperieurNoeud.model'
 
 import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
 
@@ -22,7 +22,7 @@ import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
 
 const instructions: NoeudModel = new SiNoeud(
   new ConditionNode(
-    new SuperieurNode(new LitteralNoeud('X'), new LitteralNoeud('Y'))
+    new SuperieurNoeud(new LitteralNoeud('X'), new LitteralNoeud('Y'))
   ),
   new AssignationNoeud(
     new LitteralNoeud('Z'),

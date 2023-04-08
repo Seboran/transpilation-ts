@@ -7,7 +7,7 @@ import MultiplicationNoeud from '../../MultiplicationNoeud.model'
 import NumberNoeud from '../../NumberNoeud.model'
 import SiNoeud from '../../SiNoeud.model'
 import SoustractionNoeud from '../../SoustractionNoeud.model'
-import SuperieurNode from '../../SuperieurNode.model'
+import SuperieurNoeud from '../../SuperieurNoeud.model'
 import VisiteurNoeud from '../VisiteurNoeud'
 
 export default abstract class AbstractVisiteur implements VisiteurNoeud {
@@ -31,7 +31,7 @@ export default abstract class AbstractVisiteur implements VisiteurNoeud {
       return this.visitSi(node)
     } else if (node instanceof SoustractionNoeud) {
       return this.visitSoustraction(node)
-    } else if (node instanceof SuperieurNode) {
+    } else if (node instanceof SuperieurNoeud) {
       return this.visitSuperieur(node)
     } else if (node instanceof AssignationNoeud) {
       return this.visitAssignation(node)
@@ -44,5 +44,5 @@ export default abstract class AbstractVisiteur implements VisiteurNoeud {
   abstract visitNumber(node: NumberNoeud): NumberNoeud
   abstract visitSi(node: SiNoeud): SiNoeud
   abstract visitSoustraction(node: SoustractionNoeud): SoustractionNoeud
-  abstract visitSuperieur(node: SuperieurNode): SuperieurNode
+  abstract visitSuperieur(node: SuperieurNoeud): SuperieurNoeud
 }

@@ -7,7 +7,7 @@ import MultiplicationNoeud from '../MultiplicationNoeud.model'
 import NumberNoeud from '../NumberNoeud.model'
 import SiNoeud from '../SiNoeud.model'
 import SoustractionNoeud from '../SoustractionNoeud.model'
-import SuperieurNode from '../SuperieurNode.model'
+import SuperieurNoeud from '../SuperieurNoeud.model'
 
 export default interface VisiteurNoeud {
   visitAddition(node: AdditionNoeud): AdditionNoeud
@@ -18,7 +18,7 @@ export default interface VisiteurNoeud {
   visitMultiplication(node: MultiplicationNoeud): MultiplicationNoeud
   visitSi(node: SiNoeud): SiNoeud
   visitSoustraction(node: SoustractionNoeud): SoustractionNoeud
-  visitSuperieur(node: SuperieurNode): SuperieurNode
+  visitSuperieur(node: SuperieurNoeud): SuperieurNoeud
   visitString(node: string): string
   visitNumberValue(node: number): number
   visitAssignation(node: AssignationNoeud): AssignationNoeud

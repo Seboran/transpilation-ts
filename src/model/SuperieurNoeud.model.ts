@@ -1,8 +1,7 @@
 import ExpressionNoeud from './ExpressionNoeud.model'
-import NoeudModel from './Noeud.model'
 import VisiteurNoeud from './visiteurs/VisiteurNoeud'
 
-export default class SuperieurNode extends ExpressionNoeud {
+export default class SuperieurNoeud extends ExpressionNoeud {
   constructor(public a: ExpressionNoeud, public b: ExpressionNoeud) {
     super()
   }

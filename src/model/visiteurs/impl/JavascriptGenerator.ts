@@ -4,7 +4,7 @@ import ConditionNode from '../../ConditionNode.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
 import SiNoeud from '../../SiNoeud.model'
 import SoustractionNoeud from '../../SoustractionNoeud.model'
-import SuperieurNode from '../../SuperieurNode.model'
+import SuperieurNoeud from '../../SuperieurNoeud.model'
 import AbstractGenerator from './AbstractGenerator'
 import CodeGenerator from './CodeGenerator'
 
@@ -55,7 +55,7 @@ export default class JavascriptGenerator
     this.visitExpression(node.b)
     return node
   }
-  visitSuperieur(node: SuperieurNode): SuperieurNode {
+  visitSuperieur(node: SuperieurNoeud): SuperieurNoeud {
     this.visitExpression(node.a)
     this.code += ' > '
     this.visitExpression(node.b)
