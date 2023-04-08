@@ -59,4 +59,15 @@ describe('Javascript Générateur', () => {
     instructions.accept(javascriptGenerator)
     expect(javascriptGenerator.print()).toEqual('2; 3;')
   })
+  test("Liste d'expressions 2", () => {
+    const javascriptGenerator = new JavascriptGenerator()
+    const instructions: NoeudModel = new ExpressionsNoeud(
+      new AssignationNoeud(new LitteralNoeud('x'), new NumberNoeud(2)),
+      new AssignationNoeud(new LitteralNoeud('x'), new NumberNoeud(3)),
+      new AdditionNoeud(new NumberNoeud(2), new NumberNoeud(2))
+    )
+
+    instructions.accept(javascriptGenerator)
+    expect(javascriptGenerator.print()).toEqual('var x = 2; var x = 3; 2 + 2;')
+  })
 })
