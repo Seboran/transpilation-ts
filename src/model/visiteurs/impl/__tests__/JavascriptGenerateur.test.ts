@@ -116,4 +116,13 @@ describe('Javascript Générateur', () => {
     instruction.accept(javascriptGenerator)
     expect(javascriptGenerator.print()).toEqual('mafonction')
   })
+  test('Multiplication', () => {
+    const javascriptGenerator = new JavascriptGenerator()
+    const instructions: NoeudModel = new MultiplicationNoeud(
+      new LitteralNoeud('2'),
+      new LitteralNoeud('3')
+    )
+    instructions.accept(javascriptGenerator)
+    expect(javascriptGenerator.print()).toEqual('2 * 3')
+  })
 })

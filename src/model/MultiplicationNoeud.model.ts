@@ -6,6 +6,6 @@ export default class MultiplicationNoeud extends ExpressionNoeud {
     super()
   }
   accept(visitor: VisiteurNoeud): void {
-    throw new Error('Method not implemented.')
+    visitor.visitMultiplication(this)
   }
 }
