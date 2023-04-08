@@ -132,4 +132,13 @@ describe('Javascript Générateur', () => {
     instruction.accept(javascriptGenerator)
     expect(javascriptGenerator.print()).toEqual('2')
   })
+  test('Soustraction', () => {
+    const javascriptGenerator = new JavascriptGenerator()
+    const instructions: NoeudModel = new SoustractionNoeud(
+      new LitteralNoeud('2'),
+      new LitteralNoeud('3')
+    )
+    instructions.accept(javascriptGenerator)
+    expect(javascriptGenerator.print()).toEqual('2 - 3')
+  })
 })
