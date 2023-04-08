@@ -1,10 +1,10 @@
 import ExpressionNoeud from './ExpressionNoeud.model'
-import LitteralNode from './LitteralNode.model'
+import LitteralNoeud from './LitteralNoeud.model'
 import VisiteurNoeud from './visiteurs/VisiteurNoeud'
 
 export default class AssignationNoeud extends ExpressionNoeud {
   constructor(
-    public variable: LitteralNode,
+    public variable: LitteralNoeud,
     public expression: ExpressionNoeud
   ) {
     super()

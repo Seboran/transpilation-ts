@@ -1,4 +1,4 @@
-import LitteralNode from '../../LitteralNode.model'
+import LitteralNoeud from '../../LitteralNoeud.model'
 import NumberNode from '../../NumberNode.model'
 import AbstractVisiteur from './AbstractVisiteur'
 import CodeGenerator from './CodeGenerator'
@@ -17,7 +17,7 @@ export default abstract class AbstractGenerator
     this.code += '' + node
     return node
   }
-  visitLitteral(node: LitteralNode): LitteralNode {
+  visitLitteral(node: LitteralNoeud): LitteralNoeud {
     this.visitString(node.name)
     return node
   }

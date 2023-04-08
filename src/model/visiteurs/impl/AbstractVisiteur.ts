@@ -2,7 +2,7 @@ import AdditionNoeud from '../../AdditionNoeud.model'
 import AssignationNoeud from '../../AssignationNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
 import ExpressionNoeud from '../../ExpressionNoeud.model'
-import LitteralNode from '../../LitteralNode.model'
+import LitteralNoeud from '../../LitteralNoeud.model'
 import MultiplicationNode from '../../MultiplicationNode.model'
 import NumberNode from '../../NumberNode.model'
 import SiNode from '../../SiNode.model'
@@ -21,7 +21,7 @@ export default abstract class AbstractVisiteur implements VisiteurNoeud {
       return this.visitAddition(node)
     } else if (node instanceof ConditionNode) {
       return this.visitCondition(node)
-    } else if (node instanceof LitteralNode) {
+    } else if (node instanceof LitteralNoeud) {
       return this.visitLitteral(node)
     } else if (node instanceof MultiplicationNode) {
       return this.visitMultiplication(node)
@@ -39,7 +39,7 @@ export default abstract class AbstractVisiteur implements VisiteurNoeud {
       throw new Error('Expression inconnue')
     }
   }
-  abstract visitLitteral(node: LitteralNode): LitteralNode
+  abstract visitLitteral(node: LitteralNoeud): LitteralNoeud
   abstract visitMultiplication(node: MultiplicationNode): MultiplicationNode
   abstract visitNumber(node: NumberNode): NumberNode
   abstract visitSi(node: SiNode): SiNode

@@ -2,7 +2,7 @@ import AdditionNoeud from '../AdditionNoeud.model'
 import AssignationNoeud from '../AssignationNoeud.model'
 import ConditionNode from '../ConditionNode.model'
 import ExpressionNoeud from '../ExpressionNoeud.model'
-import LitteralNode from '../LitteralNode.model'
+import LitteralNoeud from '../LitteralNoeud.model'
 import MultiplicationNode from '../MultiplicationNode.model'
 import NumberNode from '../NumberNode.model'
 import SiNode from '../SiNode.model'
@@ -14,7 +14,7 @@ export default interface VisiteurNoeud {
   visitNumber(node: NumberNode): NumberNode
   visitCondition(node: ConditionNode): ConditionNode
   visitExpression(node: ExpressionNoeud): ExpressionNoeud
-  visitLitteral(node: LitteralNode): LitteralNode
+  visitLitteral(node: LitteralNoeud): LitteralNoeud
   visitMultiplication(node: MultiplicationNode): MultiplicationNode
   visitSi(node: SiNode): SiNode
   visitSoustraction(node: SoustractionNode): SoustractionNode

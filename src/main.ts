@@ -1,7 +1,7 @@
 import AdditionNoeud from './model/AdditionNoeud.model'
 import AssignationNoeud from './model/AssignationNoeud.model'
 import ConditionNode from './model/ConditionNode.model'
-import LitteralNode from './model/LitteralNode.model'
+import LitteralNoeud from './model/LitteralNoeud.model'
 import MultiplicationNode from './model/MultiplicationNode.model'
 import NoeudModel from './model/Noeud.model'
 import NumberNode from './model/NumberNode.model'
@@ -22,10 +22,10 @@ import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
 
 const instructions: NoeudModel = new SiNode(
   new ConditionNode(
-    new SuperieurNode(new LitteralNode('X'), new LitteralNode('Y'))
+    new SuperieurNode(new LitteralNoeud('X'), new LitteralNoeud('Y'))
   ),
   new AssignationNoeud(
-    new LitteralNode('Z'),
+    new LitteralNoeud('Z'),
     new AdditionNoeud(
       new NumberNode(2),
       new MultiplicationNode(new NumberNode(5), new NumberNode(3))

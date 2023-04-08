@@ -2,7 +2,7 @@ import { consolelogDecorator } from '../../../decorators/consolelogDecorator'
 import AdditionNoeud from '../../AdditionNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
 import ExpressionNoeud from '../../ExpressionNoeud.model'
-import LitteralNode from '../../LitteralNode.model'
+import LitteralNoeud from '../../LitteralNoeud.model'
 import MultiplicationNode from '../../MultiplicationNode.model'
 import NumberNode from '../../NumberNode.model'
 import SiNode from '../../SiNode.model'
@@ -39,7 +39,7 @@ export default class ConsoleLogVisiteur
   visitExpression(node: ExpressionNoeud): ExpressionNoeud {
     return super.visitExpression(node)
   }
-  visitLitteral(node: LitteralNode): LitteralNode {
+  visitLitteral(node: LitteralNoeud): LitteralNoeud {
     console.log(node)
     return node
   }
