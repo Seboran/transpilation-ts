@@ -3,7 +3,7 @@ import NumberNoeud from '../../NumberNoeud.model'
 import AbstractVisiteur from './AbstractVisiteur'
 import CodeGenerator from './CodeGenerator'
 
-export default abstract class AbstractGenerator
+export default abstract class AbstractGenerateur
   extends AbstractVisiteur
   implements CodeGenerator
 {

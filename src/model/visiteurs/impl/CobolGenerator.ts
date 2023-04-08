@@ -5,11 +5,11 @@ import MultiplicationNoeud from '../../MultiplicationNoeud.model'
 import SiNoeud from '../../SiNoeud.model'
 import SoustractionNoeud from '../../SoustractionNoeud.model'
 import SuperieurNoeud from '../../SuperieurNoeud.model'
-import AbstractGenerator from './AbstractGenerator'
+import AbstractGenerateur from './AbstractGenerateur'
 import CodeGenerator from './CodeGenerator'
 
 export default class CobolGenerator
-  extends AbstractGenerator
+  extends AbstractGenerateur
   implements CodeGenerator
 {
   visitAssignation(node: AssignationNoeud): AssignationNoeud {
