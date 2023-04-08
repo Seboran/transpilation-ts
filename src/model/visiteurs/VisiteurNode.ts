@@ -1,4 +1,4 @@
-import AdditionNode from '../AdditionNode.model'
+import AdditionNoeud from '../AdditionNoeud.model'
 import AssignationNode from '../AssignationNode.model'
 import ConditionNode from '../ConditionNode.model'
 import ExpressionNode from '../ExpressionNode.model'
@@ -10,7 +10,7 @@ import SoustractionNode from '../SoustractionNode.model'
 import SuperieurNode from '../SuperieurNode.model'
 
 export default interface VisiteurNode {
-  visitAddition(node: AdditionNode): AdditionNode
+  visitAddition(node: AdditionNoeud): AdditionNoeud
   visitNumber(node: NumberNode): NumberNode
   visitCondition(node: ConditionNode): ConditionNode
   visitExpression(node: ExpressionNode): ExpressionNode

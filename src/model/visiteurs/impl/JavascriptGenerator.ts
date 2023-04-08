@@ -1,4 +1,4 @@
-import AdditionNode from '../../AdditionNode.model'
+import AdditionNoeud from '../../AdditionNoeud.model'
 import AssignationNode from '../../AssignationNode.model'
 import ConditionNode from '../../ConditionNode.model'
 import MultiplicationNode from '../../MultiplicationNode.model'
@@ -19,7 +19,7 @@ export default class JavascriptGenerator
     this.visitExpression(node.expression)
     return node
   }
-  visitAddition(node: AdditionNode): AdditionNode {
+  visitAddition(node: AdditionNoeud): AdditionNoeud {
     this.visitExpression(node.a)
     this.code += ' + '
     this.visitExpression(node.b)

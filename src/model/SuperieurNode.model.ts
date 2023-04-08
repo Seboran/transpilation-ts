@@ -1,5 +1,5 @@
 import ExpressionNode from './ExpressionNode.model'
-import NodeModel from './Node.model'
+import NoeudModel from './Noeud.model'
 import VisiteurNode from './visiteurs/VisiteurNode'
 
 export default class SuperieurNode extends ExpressionNode {

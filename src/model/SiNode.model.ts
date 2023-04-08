@@ -1,12 +1,12 @@
 import ConditionNode from './ConditionNode.model'
-import NodeModel from './Node.model'
+import NoeudModel from './Noeud.model'
 import VisiteurNode from './visiteurs/VisiteurNode'
 
-export default class SiNode extends NodeModel {
+export default class SiNode extends NoeudModel {
   constructor(
     public condition: ConditionNode,
-    public conditionVraieExpression: NodeModel,
-    public conditionFausseExpression: NodeModel
+    public conditionVraieExpression: NoeudModel,
+    public conditionFausseExpression: NoeudModel
   ) {
     super()
   }

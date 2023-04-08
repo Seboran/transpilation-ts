@@ -1,5 +1,5 @@
 import { consolelogDecorator } from '../../../decorators/consolelogDecorator'
-import AdditionNode from '../../AdditionNode.model'
+import AdditionNoeud from '../../AdditionNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
 import ExpressionNode from '../../ExpressionNode.model'
 import LitteralNode from '../../LitteralNode.model'
@@ -24,7 +24,7 @@ export default class ConsoleLogVisiteur
   visitNumberValue(node: number): number {
     throw new Error('Method not implemented.')
   }
-  visitAddition(node: AdditionNode): AdditionNode {
+  visitAddition(node: AdditionNoeud): AdditionNoeud {
     console.log(node)
     return node
   }

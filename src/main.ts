@@ -1,9 +1,9 @@
-import AdditionNode from './model/AdditionNode.model'
+import AdditionNoeud from './model/AdditionNoeud.model'
 import AssignationNode from './model/AssignationNode.model'
 import ConditionNode from './model/ConditionNode.model'
 import LitteralNode from './model/LitteralNode.model'
 import MultiplicationNode from './model/MultiplicationNode.model'
-import NodeModel from './model/Node.model'
+import NoeudModel from './model/Noeud.model'
 import NumberNode from './model/NumberNode.model'
 import SiNode from './model/SiNode.model'
 import SoustractionNode from './model/SoustractionNode.model'
@@ -20,18 +20,18 @@ import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
  *   2 + (5 - 3)
  */
 
-const instructions: NodeModel = new SiNode(
+const instructions: NoeudModel = new SiNode(
   new ConditionNode(
     new SuperieurNode(new LitteralNode('X'), new LitteralNode('Y'))
   ),
   new AssignationNode(
     new LitteralNode('Z'),
-    new AdditionNode(
+    new AdditionNoeud(
       new NumberNode(2),
       new MultiplicationNode(new NumberNode(5), new NumberNode(3))
     )
   ),
-  new AdditionNode(
+  new AdditionNoeud(
     new NumberNode(2),
     new SoustractionNode(new NumberNode(5), new NumberNode(3))
   )

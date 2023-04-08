@@ -1,4 +1,4 @@
-import AdditionNode from '../../AdditionNode.model'
+import AdditionNoeud from '../../AdditionNoeud.model'
 import AssignationNode from '../../AssignationNode.model'
 import ConditionNode from '../../ConditionNode.model'
 import ExpressionNode from '../../ExpressionNode.model'
@@ -14,10 +14,10 @@ export default abstract class AbstractVisiteur implements VisiteurNode {
   abstract visitAssignation(node: AssignationNode): AssignationNode
   abstract visitNumberValue(node: number): number
   abstract visitString(node: string): string
-  abstract visitAddition(node: AdditionNode): AdditionNode
+  abstract visitAddition(node: AdditionNoeud): AdditionNoeud
   abstract visitCondition(node: ConditionNode): ConditionNode
   visitExpression(node: ExpressionNode): ExpressionNode {
-    if (node instanceof AdditionNode) {
+    if (node instanceof AdditionNoeud) {
       return this.visitAddition(node)
     } else if (node instanceof ConditionNode) {
       return this.visitCondition(node)
