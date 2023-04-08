@@ -40,27 +40,3 @@ const instructions: NoeudModel = new SiNoeud(
 const javascriptGenerator = new JavascriptGenerator()
 instructions.accept(javascriptGenerator)
 console.log(javascriptGenerator.print())
-
-// const cobolGenerator = new CobolGenerator()
-// instructions.accept(cobolGenerator)
-// console.log(cobolGenerator.print())
-
-// /**
-//  * Nouvel exemple avec une assignation
-//  *
-//  * x := 2 + 2
-//  */
-
-// const assignation: NodeModel = new AssignationNode(
-//   new LitteralNode('x'),
-//   new AdditionNode(new NumberNode(2), new NumberNode(2))
-// )
-
-// const javascriptGenerator2 = new JavascriptGenerator()
-// assignation.accept(javascriptGenerator2)
-// console.log('Assignation', javascriptGenerator2.print())
-
-// const consoleLogVisiteur = new ConsoleLogVisiteur()
-// consoleLogVisiteur.visitSoustraction(
-//   new SoustractionNode(new NumberNode(2), new NumberNode(2))
-// )
