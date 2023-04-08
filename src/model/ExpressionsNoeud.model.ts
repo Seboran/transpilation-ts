@@ -8,6 +8,6 @@ export default class ExpressionsNoeud extends ExpressionNoeud {
     this.expressions = expressions
   }
   accept(visitor: VisiteurNoeud): void {
-    throw new Error('Method not implemented.')
+    visitor.visitExpressions(this)
   }
 }

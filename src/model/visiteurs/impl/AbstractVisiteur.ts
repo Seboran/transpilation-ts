@@ -2,6 +2,7 @@ import AdditionNoeud from '../../AdditionNoeud.model'
 import AssignationNoeud from '../../AssignationNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
 import ExpressionNoeud from '../../ExpressionNoeud.model'
+import ExpressionsNoeud from '../../ExpressionsNoeud.model'
 import LitteralNoeud from '../../LitteralNoeud.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
 import NumberNoeud from '../../NumberNoeud.model'
@@ -11,6 +12,7 @@ import SuperieurNoeud from '../../SuperieurNoeud.model'
 import VisiteurNoeud from '../VisiteurNoeud'
 
 export default abstract class AbstractVisiteur implements VisiteurNoeud {
+  abstract visitExpressions(node: ExpressionsNoeud): ExpressionsNoeud
   abstract visitAssignation(node: AssignationNoeud): AssignationNoeud
   abstract visitNumberValue(node: number): number
   abstract visitString(node: string): string
