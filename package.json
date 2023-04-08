@@ -12,6 +12,7 @@
     "precommit": "yarn format && yarn test && git add ."
   },
   "devDependencies": {
+    "@vitest/coverage-c8": "^0.29.8",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.7",
     "rimraf": "^4.4.1",
