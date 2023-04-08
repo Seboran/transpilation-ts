@@ -4,7 +4,7 @@ import ConditionNode from './model/ConditionNode.model'
 import LitteralNoeud from './model/LitteralNoeud.model'
 import MultiplicationNoeud from './model/MultiplicationNoeud.model'
 import NoeudModel from './model/Noeud.model'
-import NumberNode from './model/NumberNode.model'
+import NumberNoeud from './model/NumberNoeud.model'
 import SiNode from './model/SiNode.model'
 import SoustractionNode from './model/SoustractionNode.model'
 import SuperieurNode from './model/SuperieurNode.model'
@@ -27,13 +27,13 @@ const instructions: NoeudModel = new SiNode(
   new AssignationNoeud(
     new LitteralNoeud('Z'),
     new AdditionNoeud(
-      new NumberNode(2),
-      new MultiplicationNoeud(new NumberNode(5), new NumberNode(3))
+      new NumberNoeud(2),
+      new MultiplicationNoeud(new NumberNoeud(5), new NumberNoeud(3))
     )
   ),
   new AdditionNoeud(
-    new NumberNode(2),
-    new SoustractionNode(new NumberNode(5), new NumberNode(3))
+    new NumberNoeud(2),
+    new SoustractionNode(new NumberNoeud(5), new NumberNoeud(3))
   )
 )
 

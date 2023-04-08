@@ -1,7 +1,7 @@
 import ExpressionNoeud from './ExpressionNoeud.model'
 import VisiteurNoeud from './visiteurs/VisiteurNoeud'
 
-export default class NumberNode extends ExpressionNoeud {
+export default class NumberNoeud extends ExpressionNoeud {
   constructor(public value: number) {
     super()
   }
