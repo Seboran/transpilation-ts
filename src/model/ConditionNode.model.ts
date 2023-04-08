@@ -7,7 +7,6 @@ export default class ConditionNode extends NoeudModel {
     super()
   }
   accept(visitor: VisiteurNoeud): void {
-    visitor.visitExpression(this.value)
     visitor.visitCondition(this)
   }
 }

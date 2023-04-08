@@ -6,7 +6,6 @@ export default class LitteralNoeud extends ExpressionNoeud {
     super()
   }
   accept(visitor: VisiteurNoeud): void {
-    visitor.visitString(this.name)
     visitor.visitLitteral(this)
   }
 }

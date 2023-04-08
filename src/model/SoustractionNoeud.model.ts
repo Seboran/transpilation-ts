@@ -8,8 +8,6 @@ export default class SoustractionNoeud extends ExpressionNoeud {
   }
 
   accept(visitor: VisiteurNoeud): void {
-    visitor.visitExpression(this.a)
-    visitor.visitExpression(this.b)
     visitor.visitSoustraction(this)
   }
 }

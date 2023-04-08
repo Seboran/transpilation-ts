@@ -6,7 +6,6 @@ export default class NumberNoeud extends ExpressionNoeud {
     super()
   }
   accept(visitor: VisiteurNoeud): void {
-    visitor.visitNumberValue(this.value)
     visitor.visitNumber(this)
   }
 }

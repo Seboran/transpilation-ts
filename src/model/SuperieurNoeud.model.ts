@@ -6,8 +6,6 @@ export default class SuperieurNoeud extends ExpressionNoeud {
     super()
   }
   accept(visitor: VisiteurNoeud): void {
-    visitor.visitExpression(this.a)
-    visitor.visitExpression(this.b)
     visitor.visitSuperieur(this)
   }
 }
