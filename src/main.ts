@@ -8,7 +8,6 @@ import NumberNode from './model/NumberNode.model'
 import SiNode from './model/SiNode.model'
 import SoustractionNode from './model/SoustractionNode.model'
 import SuperieurNode from './model/SuperieurNode.model'
-import CobolGenerator from './model/visiteurs/impl/CobolGenerator'
 
 import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
 
@@ -25,9 +24,12 @@ const instructions: NodeModel = new SiNode(
   new ConditionNode(
     new SuperieurNode(new LitteralNode('X'), new LitteralNode('Y'))
   ),
-  new AdditionNode(
-    new NumberNode(2),
-    new MultiplicationNode(new NumberNode(5), new NumberNode(3))
+  new AssignationNode(
+    new LitteralNode('Z'),
+    new AdditionNode(
+      new NumberNode(2),
+      new MultiplicationNode(new NumberNode(5), new NumberNode(3))
+    )
   ),
   new AdditionNode(
     new NumberNode(2),
@@ -39,21 +41,26 @@ const javascriptGenerator = new JavascriptGenerator()
 instructions.accept(javascriptGenerator)
 console.log(javascriptGenerator.print())
 
-const cobolGenerator = new CobolGenerator()
-instructions.accept(cobolGenerator)
-console.log(cobolGenerator.print())
+// const cobolGenerator = new CobolGenerator()
+// instructions.accept(cobolGenerator)
+// console.log(cobolGenerator.print())
 
-/**
- * Nouvel exemple avec une assignation
- *
- * x := 2 + 2
- */
+// /**
+//  * Nouvel exemple avec une assignation
+//  *
+//  * x := 2 + 2
+//  */
 
-const assignation: NodeModel = new AssignationNode(
-  new LitteralNode('x'),
-  new AdditionNode(new NumberNode(2), new NumberNode(2))
-)
+// const assignation: NodeModel = new AssignationNode(
+//   new LitteralNode('x'),
+//   new AdditionNode(new NumberNode(2), new NumberNode(2))
+// )
 
-const javascriptGenerator2 = new JavascriptGenerator()
-assignation.accept(javascriptGenerator2)
-console.log('Assignation', javascriptGenerator2.print())
+// const javascriptGenerator2 = new JavascriptGenerator()
+// assignation.accept(javascriptGenerator2)
+// console.log('Assignation', javascriptGenerator2.print())
+
+// const consoleLogVisiteur = new ConsoleLogVisiteur()
+// consoleLogVisiteur.visitSoustraction(
+//   new SoustractionNode(new NumberNode(2), new NumberNode(2))
+// )
