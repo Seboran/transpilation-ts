@@ -30,11 +30,18 @@ export default class JavascriptGenerator
     }
   }
   visitAssignation(node: AssignationNoeud): AssignationNoeud {
-    this.code += 'var '
+    const prefix = this.getPrefix(node.final)
+    this.code += prefix + ' '
     this.visitLitteral(node.variable)
     this.code += ' = '
     this.visitExpression(node.expression)
     return node
+  }
+  getPrefix(final: 'final' | 'default') {
+    if (final == 'final') {
+      return 'const'
+    }
+    return 'var'
   }
   visitAddition(node: AdditionNoeud): AdditionNoeud {
     this.visitExpression(node.a)

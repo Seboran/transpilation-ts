@@ -5,7 +5,8 @@ import VisiteurNoeud from './visiteurs/VisiteurNoeud'
 export default class AssignationNoeud extends ExpressionNoeud {
   constructor(
     public variable: LitteralNoeud,
-    public expression: ExpressionNoeud
+    public expression: ExpressionNoeud,
+    public final: 'final' | 'default' = 'default'
   ) {
     super()
   }
