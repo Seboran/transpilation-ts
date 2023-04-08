@@ -141,4 +141,13 @@ describe('Javascript Générateur', () => {
     instructions.accept(javascriptGenerator)
     expect(javascriptGenerator.print()).toEqual('2 - 3')
   })
+  test('Supérieur strict', () => {
+    const javascriptGenerator = new JavascriptGenerator()
+    const instructions: NoeudModel = new SuperieurNoeud(
+      new LitteralNoeud('2'),
+      new LitteralNoeud('3')
+    )
+    instructions.accept(javascriptGenerator)
+    expect(javascriptGenerator.print()).toEqual('2 > 3')
+  })
 })
