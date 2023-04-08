@@ -6,8 +6,6 @@ export default class AdditionNoeud extends ExpressionNoeud {
     super()
   }
   accept(visitor: VisiteurNoeud): void {
-    visitor.visitExpression(this.a)
-    visitor.visitExpression(this.b)
     visitor.visitAddition(this)
   }
 }
