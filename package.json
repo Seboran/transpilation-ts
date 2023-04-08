@@ -7,7 +7,7 @@
     "start": "rimraf dist && tsc-watch --sourceMap --onSuccess 'node dist/main.js'",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "build": "yarn format && yarn tsc",
+    "build": "yarn tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "precommit": "yarn format && yarn test && git add ."
   },
