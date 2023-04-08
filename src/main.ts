@@ -6,7 +6,7 @@ import MultiplicationNoeud from './model/MultiplicationNoeud.model'
 import NoeudModel from './model/Noeud.model'
 import NumberNoeud from './model/NumberNoeud.model'
 import SiNoeud from './model/SiNoeud.model'
-import SoustractionNode from './model/SoustractionNode.model'
+import SoustractionNoeud from './model/SoustractionNoeud.model'
 import SuperieurNode from './model/SuperieurNode.model'
 
 import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
@@ -33,7 +33,7 @@ const instructions: NoeudModel = new SiNoeud(
   ),
   new AdditionNoeud(
     new NumberNoeud(2),
-    new SoustractionNode(new NumberNoeud(5), new NumberNoeud(3))
+    new SoustractionNoeud(new NumberNoeud(5), new NumberNoeud(3))
   )
 )
 

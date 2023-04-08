@@ -3,7 +3,7 @@ import AssignationNoeud from '../../AssignationNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
 import SiNoeud from '../../SiNoeud.model'
-import SoustractionNode from '../../SoustractionNode.model'
+import SoustractionNoeud from '../../SoustractionNoeud.model'
 import SuperieurNode from '../../SuperieurNode.model'
 import AbstractGenerator from './AbstractGenerator'
 import CodeGenerator from './CodeGenerator'
@@ -49,7 +49,7 @@ export default class JavascriptGenerator
     this.code += ' }'
     return node
   }
-  visitSoustraction(node: SoustractionNode): SoustractionNode {
+  visitSoustraction(node: SoustractionNoeud): SoustractionNoeud {
     this.visitExpression(node.a)
     this.code += ' - '
     this.visitExpression(node.b)

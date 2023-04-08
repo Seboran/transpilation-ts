@@ -6,7 +6,7 @@ import LitteralNoeud from '../../LitteralNoeud.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
 import NumberNoeud from '../../NumberNoeud.model'
 import SiNoeud from '../../SiNoeud.model'
-import SoustractionNode from '../../SoustractionNode.model'
+import SoustractionNoeud from '../../SoustractionNoeud.model'
 import SuperieurNode from '../../SuperieurNode.model'
 import VisiteurNoeud from '../VisiteurNoeud'
 import { applyMethodDecoratorToAllMethods } from '../../../decorators/applyMethodDecoratorToAllMethods'
@@ -51,7 +51,7 @@ export default class ConsoleLogVisiteur
     console.log(node)
     return node
   }
-  visitSoustraction(node: SoustractionNode): SoustractionNode {
+  visitSoustraction(node: SoustractionNoeud): SoustractionNoeud {
     console.log(node)
     return node
   }
