@@ -49,6 +49,19 @@ describe('Javascript Générateur', () => {
 
     expect(javascriptGenerator.print()).toEqual('var bonjour = 2 + salut')
   })
+  test('Assignation avec const', () => {
+    const javascriptGenerator = new JavascriptGenerator()
+
+    const instructions: AssignationNoeud = new AssignationNoeud(
+      new LitteralNoeud('bonjour'),
+      new NumberNoeud(2),
+      'final'
+    )
+
+    instructions.accept(javascriptGenerator)
+
+    expect(javascriptGenerator.print()).toEqual('const bonjour = 2')
+  })
   test("Liste d'expressions", () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instructions: NoeudModel = new ExpressionsNoeud(
