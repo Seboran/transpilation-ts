@@ -11,6 +11,8 @@ import SuperieurNoeud from './model/SuperieurNoeud.model'
 
 import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
 
+import * as prettier from 'prettier'
+
 /**
  * On veut représenter avec des nodes l'instruction suivante en pseudo code :
  *
@@ -39,4 +41,5 @@ const instructions: NoeudModel = new SiNoeud(
 
 const javascriptGenerator = new JavascriptGenerator()
 instructions.accept(javascriptGenerator)
-console.log(javascriptGenerator.print())
+
+console.log(prettier.format(javascriptGenerator.print(), { parser: 'babel' }))
