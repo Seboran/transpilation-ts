@@ -72,6 +72,12 @@ describe('Javascript Générateur', () => {
     instructions.accept(javascriptGenerator)
     expect(javascriptGenerator.print()).toEqual('2 + 3')
   })
+  test('Condition', () => {
+    const javascriptGenerator = new JavascriptGenerator()
+    const instructions: NoeudModel = new ConditionNode(new LitteralNoeud('2'))
+    instructions.accept(javascriptGenerator)
+    expect(javascriptGenerator.print()).toEqual('2')
+  })
   test("Liste d'expressions", () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instructions: NoeudModel = new ExpressionsNoeud(
