@@ -109,4 +109,11 @@ describe('Javascript Générateur', () => {
     instruction.accept(javascriptGenerator)
     expect(javascriptGenerator.print()).toEqual('mafonction(2,3)')
   })
+  test('Litteral', () => {
+    const javascriptGenerator = new JavascriptGenerator()
+    const instruction: NoeudModel = new LitteralNoeud('mafonction')
+
+    instruction.accept(javascriptGenerator)
+    expect(javascriptGenerator.print()).toEqual('mafonction')
+  })
 })
