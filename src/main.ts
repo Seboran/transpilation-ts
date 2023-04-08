@@ -1,6 +1,8 @@
 import AdditionNoeud from './model/AdditionNoeud.model'
 import AssignationNoeud from './model/AssignationNoeud.model'
 import ConditionNode from './model/ConditionNode.model'
+import ExpressionsNoeud from './model/ExpressionsNoeud.model'
+import FonctionNoeud from './model/FonctionNoeud.model'
 import LitteralNoeud from './model/LitteralNoeud.model'
 import MultiplicationNoeud from './model/MultiplicationNoeud.model'
 import NoeudModel from './model/Noeud.model'
@@ -21,8 +23,7 @@ import * as prettier from 'prettier'
  * sinon:
  *   2 + (5 - 3)
  */
-
-const instructions: NoeudModel = new SiNoeud(
+const siNoeud = new SiNoeud(
   new ConditionNode(
     new SuperieurNoeud(new LitteralNoeud('X'), new LitteralNoeud('Y'))
   ),
@@ -37,6 +38,14 @@ const instructions: NoeudModel = new SiNoeud(
     new NumberNoeud(2),
     new SoustractionNoeud(new NumberNoeud(5), new NumberNoeud(3))
   )
+)
+/**
+ * On veut aussi rajouter un appel de fonction avant
+ */
+
+const instructions: NoeudModel = new ExpressionsNoeud(
+  new FonctionNoeud(new LitteralNoeud('mafonction')),
+  siNoeud
 )
 
 const javascriptGenerator = new JavascriptGenerator()
