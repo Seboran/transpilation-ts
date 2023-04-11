@@ -11,9 +11,8 @@ import SiNoeud from './model/SiNoeud.model'
 import SoustractionNoeud from './model/SoustractionNoeud.model'
 import SuperieurNoeud from './model/SuperieurNoeud.model'
 
-import JavascriptGenerator from './model/visiteurs/impl/JavascriptGenerator'
-
 import * as prettier from 'prettier'
+import JavascriptGenerator from './visiteurs/impl/generator/js/JavascriptGenerator'
 
 /**
  * On veut représenter avec des nodes l'instruction suivante en pseudo code :

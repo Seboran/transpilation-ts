@@ -1,6 +1,6 @@
-import SoustractionNoeud from '../../../SoustractionNoeud.model'
-import VisiteurNoeud from '../../VisiteurNoeud'
-import AbstractVisiteurOrchestrateur from '../AbstractVisiteurOrchestrateur'
+import SoustractionNoeud from '../../../../../model/SoustractionNoeud.model'
+import VisiteurNoeud from '../../../../VisiteurNoeud'
+import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsSoutractionVisiteur
   extends AbstractVisiteurOrchestrateur<string>

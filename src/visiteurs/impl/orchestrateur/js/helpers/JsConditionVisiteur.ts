@@ -1,6 +1,6 @@
-import ConditionNode from '../../../ConditionNode.model'
-import VisiteurNoeud from '../../VisiteurNoeud'
-import AbstractVisiteurOrchestrateur from '../AbstractVisiteurOrchestrateur'
+import ConditionNode from '../../../../../model/ConditionNode.model'
+import VisiteurNoeud from '../../../../VisiteurNoeud'
+import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsConditionVisiteur
   extends AbstractVisiteurOrchestrateur<string>

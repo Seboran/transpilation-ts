@@ -1,6 +1,6 @@
-import LitteralNoeud from '../../../LitteralNoeud.model'
-import VisiteurNoeud from '../../VisiteurNoeud'
-import AbstractVisiteurOrchestrateur from '../AbstractVisiteurOrchestrateur'
+import LitteralNoeud from '../../../../../model/LitteralNoeud.model'
+import VisiteurNoeud from '../../../../VisiteurNoeud'
+import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsLitteralVisiteur
   extends AbstractVisiteurOrchestrateur<string>

@@ -1,6 +1,6 @@
-import SiNoeud from '../../../SiNoeud.model'
-import VisiteurNoeud from '../../VisiteurNoeud'
-import AbstractVisiteurOrchestrateur from '../AbstractVisiteurOrchestrateur'
+import SiNoeud from '../../../../../model/SiNoeud.model'
+import VisiteurNoeud from '../../../../VisiteurNoeud'
+import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsSiVisiteur
   extends AbstractVisiteurOrchestrateur<string>

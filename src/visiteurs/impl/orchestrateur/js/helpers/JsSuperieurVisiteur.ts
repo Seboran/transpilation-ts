@@ -1,6 +1,6 @@
-import SuperieurNoeud from '../../../SuperieurNoeud.model'
-import VisiteurNoeud from '../../VisiteurNoeud'
-import AbstractVisiteurOrchestrateur from '../AbstractVisiteurOrchestrateur'
+import SuperieurNoeud from '../../../../../model/SuperieurNoeud.model'
+import VisiteurNoeud from '../../../../VisiteurNoeud'
+import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsSuperieurVisiteur
   extends AbstractVisiteurOrchestrateur<string>

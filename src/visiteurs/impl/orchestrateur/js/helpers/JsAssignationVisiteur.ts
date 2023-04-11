@@ -1,6 +1,6 @@
-import AssignationNoeud from '../../../AssignationNoeud.model'
-import VisiteurNoeud from '../../VisiteurNoeud'
-import AbstractVisiteurOrchestrateur from '../AbstractVisiteurOrchestrateur'
+import AssignationNoeud from '../../../../../model/AssignationNoeud.model'
+import VisiteurNoeud from '../../../../VisiteurNoeud'
+import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsAssignationVisiteur
   extends AbstractVisiteurOrchestrateur<string>

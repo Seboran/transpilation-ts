@@ -1,6 +1,6 @@
-import LitteralNoeud from '../../LitteralNoeud.model'
-import NombreNoeud from '../../NombreNoeud.model'
-import AbstractVisiteur from './AbstractVisiteur'
+import LitteralNoeud from '../../../model/LitteralNoeud.model'
+import NombreNoeud from '../../../model/NombreNoeud.model'
+import AbstractVisiteur from '../AbstractVisiteur'
 import CodeGenerator from './CodeGenerator'
 
 export default abstract class AbstractGenerateur

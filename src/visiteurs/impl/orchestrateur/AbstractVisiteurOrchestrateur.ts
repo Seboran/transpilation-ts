@@ -1,5 +1,5 @@
-import NoeudModel from '../../Noeud.model'
-import VisiteurNoeud from '../VisiteurNoeud'
+import NoeudModel from '../../../model/Noeud.model'
+import VisiteurNoeud from '../../VisiteurNoeud'
 
 export default abstract class AbstractVisiteurOrchestrateur<T> {
   constructor(

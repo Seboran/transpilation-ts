@@ -1,6 +1,5 @@
 import ExpressionNoeud from './ExpressionNoeud.model'
 import LitteralNoeud from './LitteralNoeud.model'
-import VisiteurNoeud from './visiteurs/VisiteurNoeud'
 
 export default class FonctionNoeud extends ExpressionNoeud {
   public nom: LitteralNoeud

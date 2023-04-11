@@ -1,6 +1,6 @@
-import ExpressionsNoeud from '../../../ExpressionsNoeud.model'
-import VisiteurNoeud from '../../VisiteurNoeud'
-import AbstractVisiteurOrchestrateur from '../AbstractVisiteurOrchestrateur'
+import ExpressionsNoeud from '../../../../../model/ExpressionsNoeud.model'
+import VisiteurNoeud from '../../../../VisiteurNoeud'
+import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsExpressionsVisiteur
   extends AbstractVisiteurOrchestrateur<string>
