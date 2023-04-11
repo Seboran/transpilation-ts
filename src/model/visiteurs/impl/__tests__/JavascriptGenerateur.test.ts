@@ -186,7 +186,7 @@ describe('Javascript Générateur', () => {
   test('lance une erreur sur une expression inconnue', () => {
     const javascriptGenerator = new JavascriptGenerator()
     class ExpressionInconnue extends ExpressionNoeud {
-      accept<T>(visiteur: VisiteurNoeud<T>): T {
+      accept<T>(visiteur: VisiteurNoeud<T, NoeudModel>): T {
         return visiteur.visit(this)
       }
     }

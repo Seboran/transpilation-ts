@@ -1,7 +1,6 @@
 import AdditionNoeud from '../../AdditionNoeud.model'
 import AssignationNoeud from '../../AssignationNoeud.model'
 import ConditionNode from '../../ConditionNode.model'
-import ExpressionNoeud from '../../ExpressionNoeud.model'
 import ExpressionsNoeud from '../../ExpressionsNoeud.model'
 import FonctionNoeud from '../../FonctionNoeud.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
@@ -10,11 +9,16 @@ import SoustractionNoeud from '../../SoustractionNoeud.model'
 import SuperieurNoeud from '../../SuperieurNoeud.model'
 import AbstractGenerateur from './AbstractGenerateur'
 import CodeGenerator from './CodeGenerator'
+import JavascriptOrchestrateur from './js/JavascriptOrchestrateur'
 
 export default class JavascriptGenerator
   extends AbstractGenerateur
   implements CodeGenerator
 {
+  constructor() {
+    const orchestrateur = new JavascriptOrchestrateur()
+    super(orchestrateur.orchestrateur)
+  }
   visitExpressions(node: ExpressionsNoeud): string {
     return node.expressions.map(this.visit.bind(this)).join('; ') + ';'
   }
