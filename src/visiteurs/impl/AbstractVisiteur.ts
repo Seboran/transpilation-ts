@@ -6,7 +6,7 @@ export default abstract class AbstractVisiteur<T>
   extends AbstractVisiteurOrchestrateur<T>
   implements VisiteurNoeud<T, NoeudModel>
 {
-  visit(node: NoeudModel): T {
+  visit<K extends NoeudModel>(node: K): T {
     return super.visit(node)
   }
 }
