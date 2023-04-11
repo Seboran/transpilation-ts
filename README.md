@@ -45,7 +45,7 @@ Exemple d'utilisation :
 
 ```typescript
 const javascriptGenerator = new JavascriptGenerator()
-instructions.accept(javascriptGenerator)
+const code = instructions.accept(javascriptGenerator)
 ```
 
 Et notre instance de JavascriptGenerator parcoure toute la node automatiquement.
