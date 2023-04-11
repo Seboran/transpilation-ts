@@ -4,19 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "rimraf dist && tsc-watch --sourceMap --onSuccess 'node dist/main.js'",
+    "start": "nodemon src/main.ts --watch src",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "build": "yarn tsc",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "precommit": "yarn format && yarn test && git add ."
+    "build": "yarn tsc"
   },
   "devDependencies": {
     "@types/prettier": "^2.7.2",
     "@vitest/coverage-c8": "^0.29.8",
     "nodemon": "^2.0.22",
-    "rimraf": "^4.4.1",
-    "tsc-watch": "^6.0.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.4",
     "vitest": "^0.29.8"
   },
