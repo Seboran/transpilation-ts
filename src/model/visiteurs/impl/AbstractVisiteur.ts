@@ -35,10 +35,13 @@ export default abstract class AbstractVisiteur<T> implements VisiteurNoeud<T> {
       return this.visitAssignation(node)
     } else if (node instanceof FonctionNoeud) {
       return this.visitFonction(node)
+    } else if (node instanceof ExpressionsNoeud) {
+      return this.visitExpressions(node)
     } else {
       throw new Error('Expression inconnue')
     }
   }
+
   abstract visitFonction(node: FonctionNoeud): T
   abstract visitExpressions(node: ExpressionsNoeud): T
   abstract visitAssignation(node: AssignationNoeud): T

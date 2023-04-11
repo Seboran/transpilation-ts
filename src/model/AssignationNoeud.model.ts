@@ -10,7 +10,4 @@ export default class AssignationNoeud extends ExpressionNoeud {
   ) {
     super()
   }
-  accept<T>(visitor: VisiteurNoeud<T>): T {
-    return visitor.visitAssignation(this)
-  }
 }

@@ -5,7 +5,4 @@ export default class LitteralNoeud extends ExpressionNoeud {
   constructor(public name: string) {
     super()
   }
-  accept<T>(visitor: VisiteurNoeud<T>): T {
-    return visitor.visitLitteral(this)
-  }
 }

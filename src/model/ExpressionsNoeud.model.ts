@@ -7,7 +7,4 @@ export default class ExpressionsNoeud extends ExpressionNoeud {
     super()
     this.expressions = expressions
   }
-  accept<T>(visitor: VisiteurNoeud<T>): T {
-    return visitor.visitExpressions(this)
-  }
 }

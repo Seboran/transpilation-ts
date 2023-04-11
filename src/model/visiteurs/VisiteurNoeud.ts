@@ -28,4 +28,5 @@ export default interface VisiteurNoeud<T> {
   visitString(node: string): T
   visitNumberValue(node: number): T
   visitAssignation(node: AssignationNoeud): T
+  visitExpressions(node: ExpressionsNoeud): T
 }
