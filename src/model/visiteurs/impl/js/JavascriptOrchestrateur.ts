@@ -24,21 +24,32 @@ import JsSiVisiteur from './JsSiVisiteur'
 import JsSoutractionVisiteur from './JsSoutractionVisiteur'
 import JsSuperieurVisiteur from './JsSuperieurVisiteur'
 
+const visiteurMappings: Array<
+  [
+    new (...args: any[]) => NoeudModel,
+    new (...args: any[]) => VisiteurNoeud<string, NoeudModel>
+  ]
+> = [
+  [AdditionNoeud, JsAdditionVisiteur],
+  [SuperieurNoeud, JsSuperieurVisiteur],
+  [ConditionNode, JsConditionVisiteur],
+  [LitteralNoeud, JsLitteralVisiteur],
+  [AssignationNoeud, JsAssignationVisiteur],
+  [NombreNoeud, JsNombreVisiteur],
+  [ExpressionsNoeud, JsExpressionsVisiteur],
+  [SoustractionNoeud, JsSoutractionVisiteur],
+  [MultiplicationNoeud, JsMultiplicationVisiteur],
+  [FonctionNoeud, JsFonctionVisiteur],
+  [SiNoeud, JsSiVisiteur],
+]
+
 export default class JavascriptOrchestrateur extends AbstractVisiteurOrchestrateur<string> {
   constructor() {
     const orchestrateur: Record<string, VisiteurNoeud<string, NoeudModel>> = {}
     super(orchestrateur)
-    this.add(AdditionNoeud, new JsAdditionVisiteur(orchestrateur))
-    this.add(SuperieurNoeud, new JsSuperieurVisiteur(orchestrateur))
-    this.add(ConditionNode, new JsConditionVisiteur(orchestrateur))
-    this.add(LitteralNoeud, new JsLitteralVisiteur(orchestrateur))
-    this.add(AssignationNoeud, new JsAssignationVisiteur(orchestrateur))
-    this.add(NombreNoeud, new JsNombreVisiteur(orchestrateur))
-    this.add(ExpressionsNoeud, new JsExpressionsVisiteur(orchestrateur))
-    this.add(SoustractionNoeud, new JsSoutractionVisiteur(orchestrateur))
-    this.add(MultiplicationNoeud, new JsMultiplicationVisiteur(orchestrateur))
-    this.add(FonctionNoeud, new JsFonctionVisiteur(orchestrateur))
-    this.add(SiNoeud, new JsSiVisiteur(orchestrateur))
+    visiteurMappings.forEach(([clazz, visiteurClass]) => {
+      this.add(clazz, new visiteurClass(orchestrateur))
+    })
   }
 
   add<T extends NoeudModel>(
