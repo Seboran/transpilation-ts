@@ -27,25 +27,24 @@ import JsSuperieurVisiteur from './JsSuperieurVisiteur'
 export default class JavascriptOrchestrateur extends AbstractVisiteurOrchestrateur<string> {
   constructor() {
     const orchestrateur: Record<string, VisiteurNoeud<string, NoeudModel>> = {}
-    orchestrateur[AdditionNoeud.name] = new JsAdditionVisiteur(orchestrateur)
-    orchestrateur[SuperieurNoeud.name] = new JsSuperieurVisiteur(orchestrateur)
-    orchestrateur[ConditionNode.name] = new JsConditionVisiteur(orchestrateur)
-    orchestrateur[LitteralNoeud.name] = new JsLitteralVisiteur(orchestrateur)
-    orchestrateur[AssignationNoeud.name] = new JsAssignationVisiteur(
-      orchestrateur
-    )
-    orchestrateur[NombreNoeud.name] = new JsNombreVisiteur(orchestrateur)
-    orchestrateur[ExpressionsNoeud.name] = new JsExpressionsVisiteur(
-      orchestrateur
-    )
-    orchestrateur[SoustractionNoeud.name] = new JsSoutractionVisiteur(
-      orchestrateur
-    )
-    orchestrateur[MultiplicationNoeud.name] = new JsMultiplicationVisiteur(
-      orchestrateur
-    )
-    orchestrateur[FonctionNoeud.name] = new JsFonctionVisiteur(orchestrateur)
-    orchestrateur[SiNoeud.name] = new JsSiVisiteur(orchestrateur)
     super(orchestrateur)
+    this.add(AdditionNoeud, new JsAdditionVisiteur(orchestrateur))
+    this.add(SuperieurNoeud, new JsSuperieurVisiteur(orchestrateur))
+    this.add(ConditionNode, new JsConditionVisiteur(orchestrateur))
+    this.add(LitteralNoeud, new JsLitteralVisiteur(orchestrateur))
+    this.add(AssignationNoeud, new JsAssignationVisiteur(orchestrateur))
+    this.add(NombreNoeud, new JsNombreVisiteur(orchestrateur))
+    this.add(ExpressionsNoeud, new JsExpressionsVisiteur(orchestrateur))
+    this.add(SoustractionNoeud, new JsSoutractionVisiteur(orchestrateur))
+    this.add(MultiplicationNoeud, new JsMultiplicationVisiteur(orchestrateur))
+    this.add(FonctionNoeud, new JsFonctionVisiteur(orchestrateur))
+    this.add(SiNoeud, new JsSiVisiteur(orchestrateur))
+  }
+
+  add<T extends NoeudModel>(
+    clazz: new (...args: any[]) => T,
+    visiteur: VisiteurNoeud<string, T>
+  ) {
+    this.orchestrateur[clazz.name] = visiteur
   }
 }
