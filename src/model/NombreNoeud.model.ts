@@ -5,7 +5,7 @@ export default class NombreNoeud extends ExpressionNoeud {
   constructor(public value: number) {
     super()
   }
-  accept(visitor: VisiteurNoeud): void {
-    visitor.visitNumber(this)
+  accept<T>(visitor: VisiteurNoeud<T>): T {
+    return visitor.visitNumber(this)
   }
 }

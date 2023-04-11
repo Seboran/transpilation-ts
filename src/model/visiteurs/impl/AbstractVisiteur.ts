@@ -6,21 +6,15 @@ import ExpressionsNoeud from '../../ExpressionsNoeud.model'
 import FonctionNoeud from '../../FonctionNoeud.model'
 import LitteralNoeud from '../../LitteralNoeud.model'
 import MultiplicationNoeud from '../../MultiplicationNoeud.model'
+import NoeudModel from '../../Noeud.model'
 import NombreNoeud from '../../NombreNoeud.model'
 import SiNoeud from '../../SiNoeud.model'
 import SoustractionNoeud from '../../SoustractionNoeud.model'
 import SuperieurNoeud from '../../SuperieurNoeud.model'
 import VisiteurNoeud from '../VisiteurNoeud'
 
-export default abstract class AbstractVisiteur implements VisiteurNoeud {
-  abstract visitFonction(node: FonctionNoeud): FonctionNoeud
-  abstract visitExpressions(node: ExpressionsNoeud): ExpressionsNoeud
-  abstract visitAssignation(node: AssignationNoeud): AssignationNoeud
-  abstract visitNumberValue(node: number): number
-  abstract visitString(node: string): string
-  abstract visitAddition(node: AdditionNoeud): AdditionNoeud
-  abstract visitCondition(node: ConditionNode): ConditionNode
-  visitExpression(node: ExpressionNoeud): ExpressionNoeud {
+export default abstract class AbstractVisiteur<T> implements VisiteurNoeud<T> {
+  visit(node: NoeudModel): T {
     if (node instanceof AdditionNoeud) {
       return this.visitAddition(node)
     } else if (node instanceof ConditionNode) {
@@ -45,10 +39,17 @@ export default abstract class AbstractVisiteur implements VisiteurNoeud {
       throw new Error('Expression inconnue')
     }
   }
-  abstract visitLitteral(node: LitteralNoeud): LitteralNoeud
-  abstract visitMultiplication(node: MultiplicationNoeud): MultiplicationNoeud
-  abstract visitNumber(node: NombreNoeud): NombreNoeud
-  abstract visitSi(node: SiNoeud): SiNoeud
-  abstract visitSoustraction(node: SoustractionNoeud): SoustractionNoeud
-  abstract visitSuperieur(node: SuperieurNoeud): SuperieurNoeud
+  abstract visitFonction(node: FonctionNoeud): T
+  abstract visitExpressions(node: ExpressionsNoeud): T
+  abstract visitAssignation(node: AssignationNoeud): T
+  abstract visitNumberValue(node: number): T
+  abstract visitString(node: string): T
+  abstract visitAddition(node: AdditionNoeud): T
+  abstract visitCondition(node: ConditionNode): T
+  abstract visitLitteral(node: LitteralNoeud): T
+  abstract visitMultiplication(node: MultiplicationNoeud): T
+  abstract visitNumber(node: NombreNoeud): T
+  abstract visitSi(node: SiNoeud): T
+  abstract visitSoustraction(node: SoustractionNoeud): T
+  abstract visitSuperieur(node: SuperieurNoeud): T
 }

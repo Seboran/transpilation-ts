@@ -7,7 +7,7 @@ export default class SoustractionNoeud extends ExpressionNoeud {
     super()
   }
 
-  accept(visitor: VisiteurNoeud): void {
-    visitor.visitSoustraction(this)
+  accept<T>(visitor: VisiteurNoeud<T>): T {
+    return visitor.visitSoustraction(this)
   }
 }

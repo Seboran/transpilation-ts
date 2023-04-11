@@ -5,7 +5,7 @@ export default class MultiplicationNoeud extends ExpressionNoeud {
   constructor(public a: ExpressionNoeud, public b: ExpressionNoeud) {
     super()
   }
-  accept(visitor: VisiteurNoeud): void {
-    visitor.visitMultiplication(this)
+  accept<T>(visitor: VisiteurNoeud<T>): T {
+    return visitor.visitMultiplication(this)
   }
 }

@@ -10,7 +10,7 @@ export default class FonctionNoeud extends ExpressionNoeud {
     this.nom = nom
     this.args = args
   }
-  accept(visitor: VisiteurNoeud): void {
-    visitor.visitFonction(this)
+  accept<T>(visitor: VisiteurNoeud<T>): T {
+    return visitor.visitFonction(this)
   }
 }

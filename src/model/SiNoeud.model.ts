@@ -10,7 +10,7 @@ export default class SiNoeud extends NoeudModel {
   ) {
     super()
   }
-  accept(visitor: VisiteurNoeud): void {
-    visitor.visitSi(this)
+  accept<T>(visitor: VisiteurNoeud<T>): T {
+    return visitor.visitSi(this)
   }
 }

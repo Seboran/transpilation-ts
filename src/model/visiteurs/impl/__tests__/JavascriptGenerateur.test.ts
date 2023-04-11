@@ -35,8 +35,8 @@ describe('Javascript Générateur', () => {
     )
 
     const javascriptGenerator = new JavascriptGenerator()
-    instructions.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual(
+    const result = instructions.accept(javascriptGenerator)
+    expect(result).toEqual(
       'if (X > Y) { var Z = 2 + 5 * 3 } else { 2 + 5 - 3 }'
     )
   })
@@ -48,9 +48,9 @@ describe('Javascript Générateur', () => {
       new AdditionNoeud(new NombreNoeud(2), new LitteralNoeud('salut'))
     )
 
-    instructions.accept(javascriptGenerator)
+    const result = instructions.accept(javascriptGenerator)
 
-    expect(javascriptGenerator.print()).toEqual('var bonjour = 2 + salut')
+    expect(result).toEqual('var bonjour = 2 + salut')
   })
   test('Assignation avec const', () => {
     const javascriptGenerator = new JavascriptGenerator()
@@ -61,9 +61,9 @@ describe('Javascript Générateur', () => {
       'final'
     )
 
-    instructions.accept(javascriptGenerator)
+    const result = instructions.accept(javascriptGenerator)
 
-    expect(javascriptGenerator.print()).toEqual('const bonjour = 2')
+    expect(result).toEqual('const bonjour = 2')
   })
   test('Addition', () => {
     const javascriptGenerator = new JavascriptGenerator()
@@ -71,14 +71,14 @@ describe('Javascript Générateur', () => {
       new LitteralNoeud('2'),
       new LitteralNoeud('3')
     )
-    instructions.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual('2 + 3')
+    const result = instructions.accept(javascriptGenerator)
+    expect(result).toEqual('2 + 3')
   })
   test('Condition', () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instructions: NoeudModel = new ConditionNode(new LitteralNoeud('2'))
-    instructions.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual('2')
+    const result = instructions.accept(javascriptGenerator)
+    expect(result).toEqual('2')
   })
   test("Liste d'expressions", () => {
     const javascriptGenerator = new JavascriptGenerator()
@@ -87,8 +87,8 @@ describe('Javascript Générateur', () => {
       new LitteralNoeud('3')
     )
 
-    instructions.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual('2; 3;')
+    const result = instructions.accept(javascriptGenerator)
+    expect(result).toEqual('2; 3;')
   })
   test("Liste d'expressions 2", () => {
     const javascriptGenerator = new JavascriptGenerator()
@@ -98,8 +98,8 @@ describe('Javascript Générateur', () => {
       new AdditionNoeud(new NombreNoeud(2), new NombreNoeud(2))
     )
 
-    instructions.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual('var x = 2; var x = 3; 2 + 2;')
+    const result = instructions.accept(javascriptGenerator)
+    expect(result).toEqual('var x = 2; var x = 3; 2 + 2;')
   })
   test("Liste d'expressions 3", () => {
     const javascriptGenerator = new JavascriptGenerator()
@@ -127,8 +127,8 @@ describe('Javascript Générateur', () => {
         new SuperieurNoeud(new LitteralNoeud('a'), new LitteralNoeud('b'))
       )
     )
-    instructions.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual(
+    const result = instructions.accept(javascriptGenerator)
+    expect(result).toEqual(
       'mafonction(); if (X > Y) { var Z = 2 + 5 * 3 } else { 2 + 5 - 3 }; a > b;'
     )
   })
@@ -139,15 +139,15 @@ describe('Javascript Générateur', () => {
       new NombreNoeud(2),
       new NombreNoeud(3)
     )
-    instruction.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual('mafonction(2,3)')
+    const result = instruction.accept(javascriptGenerator)
+    expect(result).toEqual('mafonction(2,3)')
   })
   test('Litteral', () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instruction: NoeudModel = new LitteralNoeud('mafonction')
 
-    instruction.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual('mafonction')
+    const result = instruction.accept(javascriptGenerator)
+    expect(result).toEqual('mafonction')
   })
   test('Multiplication', () => {
     const javascriptGenerator = new JavascriptGenerator()
@@ -155,15 +155,15 @@ describe('Javascript Générateur', () => {
       new LitteralNoeud('2'),
       new LitteralNoeud('3')
     )
-    instructions.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual('2 * 3')
+    const result = instructions.accept(javascriptGenerator)
+    expect(result).toEqual('2 * 3')
   })
   test('Nombre', () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instruction: NoeudModel = new NombreNoeud(2)
 
-    instruction.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual('2')
+    const result = instruction.accept(javascriptGenerator)
+    expect(result).toEqual('2')
   })
   test('Soustraction', () => {
     const javascriptGenerator = new JavascriptGenerator()
@@ -171,8 +171,8 @@ describe('Javascript Générateur', () => {
       new LitteralNoeud('2'),
       new LitteralNoeud('3')
     )
-    instructions.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual('2 - 3')
+    const result = instructions.accept(javascriptGenerator)
+    expect(result).toEqual('2 - 3')
   })
   test('Supérieur strict', () => {
     const javascriptGenerator = new JavascriptGenerator()
@@ -180,14 +180,14 @@ describe('Javascript Générateur', () => {
       new LitteralNoeud('2'),
       new LitteralNoeud('3')
     )
-    instructions.accept(javascriptGenerator)
-    expect(javascriptGenerator.print()).toEqual('2 > 3')
+    const result = instructions.accept(javascriptGenerator)
+    expect(result).toEqual('2 > 3')
   })
   test('lance une erreur sur une expression inconnue', () => {
     const javascriptGenerator = new JavascriptGenerator()
     class ExpressionInconnue extends ExpressionNoeud {
-      accept(visiteur: VisiteurNoeud): void {
-        visiteur.visitExpression(this)
+      accept<T>(visiteur: VisiteurNoeud<T>): T {
+        return visiteur.visit(this)
       }
     }
     const instructions: ExpressionNoeud = new ExpressionInconnue()

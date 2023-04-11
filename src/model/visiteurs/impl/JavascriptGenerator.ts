@@ -15,45 +15,26 @@ export default class JavascriptGenerator
   extends AbstractGenerateur
   implements CodeGenerator
 {
-  visitFonction(node: FonctionNoeud): FonctionNoeud {
-    this.visitLitteral(node.nom)
-    this.code += '('
-    node.args.forEach(this.visitArgument.bind(this))
-    this.code += ')'
-    return node
+  visitExpressions(node: ExpressionsNoeud): string {
+    return node.expressions.map(this.visit.bind(this)).join('; ') + ';'
   }
-  visitArgument(
-    node: ExpressionNoeud,
-    index: number,
-    array: ExpressionNoeud[]
-  ) {
-    this.visitExpression(node)
-    if (index + 1 != array.length) {
-      this.code += ','
-    }
+  visitFonction(node: FonctionNoeud): string {
+    return (
+      this.visitLitteral(node.nom) +
+      '(' +
+      node.args.map(this.visit.bind(this)).join(',') +
+      ')'
+    )
   }
-  visitExpressions(node: ExpressionsNoeud): ExpressionsNoeud {
-    node.expressions.forEach(this.visitExpressionLocal.bind(this))
-    return node
-  }
-  visitExpressionLocal(
-    node: ExpressionNoeud,
-    index: number,
-    array: ExpressionNoeud[]
-  ): void {
-    this.visitExpression(node)
-    this.code += ';'
-    if (index + 1 != array.length) {
-      this.code += ' '
-    }
-  }
-  visitAssignation(node: AssignationNoeud): AssignationNoeud {
+  visitAssignation(node: AssignationNoeud): string {
     const prefix = this.getPrefix(node.final)
-    this.code += prefix + ' '
-    this.visitLitteral(node.variable)
-    this.code += ' = '
-    this.visitExpression(node.expression)
-    return node
+    return (
+      prefix +
+      ' ' +
+      this.visitLitteral(node.variable) +
+      ' = ' +
+      this.visit(node.expression)
+    )
   }
   getPrefix(final: 'final' | 'default') {
     if (final == 'final') {
@@ -61,47 +42,33 @@ export default class JavascriptGenerator
     }
     return 'var'
   }
-  visitAddition(node: AdditionNoeud): AdditionNoeud {
-    this.visitExpression(node.a)
-    this.code += ' + '
-    this.visitExpression(node.b)
-    return node
+  visitAddition(node: AdditionNoeud): string {
+    return this.visit(node.a) + ' + ' + this.visit(node.b)
   }
-  visitCondition(node: ConditionNode): ConditionNode {
-    this.visitExpression(node.value)
-    return node
+  visitCondition(node: ConditionNode): string {
+    return this.visit(node.value)
   }
 
-  visitMultiplication(node: MultiplicationNoeud): MultiplicationNoeud {
-    this.visitExpression(node.a)
-    this.code += ' * '
-    this.visitExpression(node.b)
-    return node
+  visitMultiplication(node: MultiplicationNoeud): string {
+    return this.visit(node.a) + ' * ' + this.visit(node.b)
   }
 
-  visitSi(node: SiNoeud): SiNoeud {
-    this.code += 'if ('
-    this.visitCondition(node.condition)
-
-    this.code += ') { '
-
-    this.visitExpression(node.conditionVraieExpression)
-    this.code += ' } else { '
-    this.visitExpression(node.conditionFausseExpression)
-    this.code += ' }'
-    return node
+  visitSi(node: SiNoeud): string {
+    return (
+      'if (' +
+      this.visitCondition(node.condition) +
+      ') { ' +
+      this.visit(node.conditionVraieExpression) +
+      ' } else { ' +
+      this.visit(node.conditionFausseExpression) +
+      ' }'
+    )
   }
-  visitSoustraction(node: SoustractionNoeud): SoustractionNoeud {
-    this.visitExpression(node.a)
-    this.code += ' - '
-    this.visitExpression(node.b)
-    return node
+  visitSoustraction(node: SoustractionNoeud): string {
+    return this.visit(node.a) + ' - ' + this.visit(node.b)
   }
-  visitSuperieur(node: SuperieurNoeud): SuperieurNoeud {
-    this.visitExpression(node.a)
-    this.code += ' > '
-    this.visitExpression(node.b)
-    return node
+  visitSuperieur(node: SuperieurNoeud): string {
+    return this.visit(node.a) + ' > ' + this.visit(node.b)
   }
 
   print(): string {

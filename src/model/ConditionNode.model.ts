@@ -6,7 +6,7 @@ export default class ConditionNode extends NoeudModel {
   constructor(public value: ExpressionNoeud) {
     super()
   }
-  accept(visitor: VisiteurNoeud): void {
-    visitor.visitCondition(this)
+  accept<T>(visitor: VisiteurNoeud<T>): T {
+    return visitor.visitCondition(this)
   }
 }
