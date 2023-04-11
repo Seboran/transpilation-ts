@@ -49,6 +49,7 @@ const instructions: NoeudModel = new ExpressionsNoeud(
 )
 
 const javascriptGenerator = new JavascriptGenerator()
-instructions.accept(javascriptGenerator)
 
-console.log(prettier.format(javascriptGenerator.print(), { parser: 'babel' }))
+console.log(
+  prettier.format(instructions.accept(javascriptGenerator), { parser: 'babel' })
+)
