@@ -56,6 +56,6 @@ export default class JavascriptOrchestrateur extends AbstractVisiteurOrchestrate
     clazz: new (...args: any[]) => T,
     visiteur: VisiteurNoeud<string, T>
   ) {
-    this.orchestrateur[clazz.name] = visiteur
+    this.orchestre[clazz.name] = visiteur
   }
 }

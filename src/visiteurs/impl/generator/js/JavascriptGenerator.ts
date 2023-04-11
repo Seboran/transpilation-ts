@@ -4,6 +4,6 @@ import JavascriptOrchestrateur from '../../orchestrateur/js/JavascriptOrchestrat
 export default class JavascriptGenerator extends AbstractVisiteur<string> {
   constructor() {
     const orchestrateur = new JavascriptOrchestrateur()
-    super(orchestrateur.orchestrateur)
+    super(orchestrateur.orchestre)
   }
 }
