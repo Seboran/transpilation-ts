@@ -11,7 +11,7 @@ import SiNoeud from '../../../../model/SiNoeud.model'
 import SoustractionNoeud from '../../../../model/SoustractionNoeud.model'
 import SuperieurNoeud from '../../../../model/SuperieurNoeud.model'
 import VisiteurNoeud from '../../../VisiteurNoeud'
-import AbstractVisiteurOrchestrateur from '../AbstractVisiteurOrchestrateur'
+import AbstractOrchestrateurImpl from '../AbstractOrchestrateurImpl'
 import JsAdditionVisiteur from './helpers/JsAdditionVisiteur'
 import JsAssignationVisiteur from './helpers/JsAssignationVisiteur'
 import JsConditionVisiteur from './helpers/JsConditionVisiteur'
@@ -24,38 +24,26 @@ import JsSiVisiteur from './helpers/JsSiVisiteur'
 import JsSoutractionVisiteur from './helpers/JsSoutractionVisiteur'
 import JsSuperieurVisiteur from './helpers/JsSuperieurVisiteur'
 
-const visiteurMappings: Array<
-  [
-    new (...args: any[]) => NoeudModel,
-    new (...args: any[]) => VisiteurNoeud<string, NoeudModel>
-  ]
-> = [
-  [AdditionNoeud, JsAdditionVisiteur],
-  [SuperieurNoeud, JsSuperieurVisiteur],
-  [ConditionNode, JsConditionVisiteur],
-  [LitteralNoeud, JsLitteralVisiteur],
-  [AssignationNoeud, JsAssignationVisiteur],
-  [NombreNoeud, JsNombreVisiteur],
-  [ExpressionsNoeud, JsExpressionsVisiteur],
-  [SoustractionNoeud, JsSoutractionVisiteur],
-  [MultiplicationNoeud, JsMultiplicationVisiteur],
-  [FonctionNoeud, JsFonctionVisiteur],
-  [SiNoeud, JsSiVisiteur],
-]
-
-export default class JavascriptOrchestrateur extends AbstractVisiteurOrchestrateur<string> {
+export default class JavascriptOrchestrateur extends AbstractOrchestrateurImpl<string> {
   constructor() {
-    const orchestrateur: Record<string, VisiteurNoeud<string, NoeudModel>> = {}
-    super(orchestrateur)
-    visiteurMappings.forEach(([clazz, visiteurClass]) => {
-      this.add(clazz, new visiteurClass(orchestrateur))
-    })
-  }
-
-  add<T extends NoeudModel>(
-    clazz: new (...args: any[]) => T,
-    visiteur: VisiteurNoeud<string, T>
-  ) {
-    this.orchestre[clazz.name] = visiteur
+    const visiteurMappings: Array<
+      [
+        new (...args: any[]) => NoeudModel,
+        new (...args: any[]) => VisiteurNoeud<string, NoeudModel>
+      ]
+    > = [
+      [AdditionNoeud, JsAdditionVisiteur],
+      [SuperieurNoeud, JsSuperieurVisiteur],
+      [ConditionNode, JsConditionVisiteur],
+      [LitteralNoeud, JsLitteralVisiteur],
+      [AssignationNoeud, JsAssignationVisiteur],
+      [NombreNoeud, JsNombreVisiteur],
+      [ExpressionsNoeud, JsExpressionsVisiteur],
+      [SoustractionNoeud, JsSoutractionVisiteur],
+      [MultiplicationNoeud, JsMultiplicationVisiteur],
+      [FonctionNoeud, JsFonctionVisiteur],
+      [SiNoeud, JsSiVisiteur],
+    ]
+    super(visiteurMappings)
   }
 }
