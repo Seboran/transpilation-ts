@@ -51,3 +51,11 @@ const code = instructions.accept(javascriptGenerator)
 Et notre instance de JavascriptGenerator parcoure toute la node automatiquement.
 
 Ce pattern est appelé "Visitor pattern double dispatch"
+
+```mermaid
+stateDiagram-v2
+Addition1 --> 2
+Addition1 --> Addition2
+Addition2 --> X
+Addition2 --> Y
+```
