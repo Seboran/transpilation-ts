@@ -1,5 +1,7 @@
 import ExpressionNoeud from './ExpressionNoeud.model'
 
 export default class NombreNoeud extends ExpressionNoeud {
-  // TODO
+  constructor(public value: number) {
+    super()
+  }
 }

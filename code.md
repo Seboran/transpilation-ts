@@ -1,5 +1,5 @@
 
 ```typescript
-2 + 4;
+var test = 2 + 3;
 
 ```
