@@ -7,6 +7,7 @@ export default class JsAdditionVisiteur
   implements VisiteurNoeud<string, AdditionNoeud>
 {
   visit(node: AdditionNoeud): string {
-    return super.visit(node.a) + ' + ' + super.visit(node.b)
+    // a + b
+    return `${super.visit(node.a)} + ${super.visit(node.b)}`
   }
 }
