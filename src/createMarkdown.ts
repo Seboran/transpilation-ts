@@ -1,12 +1,14 @@
 import fs from 'fs'
 
 export default function insertCodeToMarkdown(
-  code: string,
-  filePath: string,
-  language: string = 'typescript'
+  codeJavascript: string,
+  codeCobol: string,
+  filePath: string
 ): void {
   // Ajouter le code source au contenu markdown
-  const markdownContent = `\n\`\`\`${language}\n${code}\n\`\`\``
+  const markdownContent = `Code javascript\n\`\`\`typescript\n${
+    codeJavascript || '// TODO'
+  }\n\`\`\`\nCode cobol\n\`\`\`cobol\n${codeCobol || '# TODO'}\n\`\`\``
 
   // Écrire le nouveau contenu dans le fichier markdown
   fs.writeFileSync(filePath, markdownContent)

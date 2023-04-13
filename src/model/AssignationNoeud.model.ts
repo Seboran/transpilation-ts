@@ -5,7 +5,7 @@ export default class AssignationNoeud extends ExpressionNoeud {
   constructor(
     public variable: LitteralNoeud,
     public expression: ExpressionNoeud,
-    public final: 'final' | 'default' = 'default'
+    public final: 'final' | 'default' | 'reaffect' = 'default'
   ) {
     super()
   }
