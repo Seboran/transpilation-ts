@@ -1,14 +1,19 @@
 import AssignationNoeud from '../../../../model/AssignationNoeud.model'
+import ConditionNode from '../../../../model/ConditionNode.model'
 import ExpressionsNoeud from '../../../../model/ExpressionsNoeud.model'
 import LitteralNoeud from '../../../../model/LitteralNoeud.model'
 import NoeudModel from '../../../../model/Noeud.model'
 import NombreNoeud from '../../../../model/NombreNoeud.model'
+import SiNoeud from '../../../../model/SiNoeud.model'
+import SuperieurNoeud from '../../../../model/SuperieurNoeud.model'
 import VisiteurNoeud from '../../../VisiteurNoeud'
 import AbstractVisiteurOrchestrateur from '../AbstractVisiteurOrchestrateur'
-import JsExpressionsVisiteur from '../js/helpers/JsExpressionsVisiteur'
+import JsConditionVisiteur from '../js/helpers/JsConditionVisiteur'
 import JsLitteralVisiteur from '../js/helpers/JsLitteralNoeud'
 import JsNombreVisiteur from '../js/helpers/JsNombreVisiteur'
+import JsSuperieurVisiteur from '../js/helpers/JsSuperieurVisiteur'
 import CobolAssignationVisiteur from './helpers/CobolAssignationVisiteur'
+import CobolSiVisiteur from './helpers/CobolSiVisiteur'
 
 const visiteurMappings: Array<
   [
@@ -27,6 +32,9 @@ const visiteurMappings: Array<
     },
   ],
   [LitteralNoeud, JsLitteralVisiteur],
+  [SiNoeud, CobolSiVisiteur],
+  [ConditionNode, JsConditionVisiteur],
+  [SuperieurNoeud, JsSuperieurVisiteur],
 ]
 
 export default class CobolOrchestrateur extends AbstractVisiteurOrchestrateur<string> {
