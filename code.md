@@ -2,6 +2,7 @@ Code javascript
 ```typescript
 var x = 5 - 3;
 x = 2 + x;
+
 ```
 Code cobol
 ```cobol
