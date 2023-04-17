@@ -38,8 +38,8 @@ export default class CobolAssignationVisiteur
     node: AssignationNoeud,
     soustraction: SoustractionNoeud
   ): string {
-    return `SUBTRACT ${super.visit(soustraction.a)} FROM ${super.visit(
-      soustraction.b
+    return `SUBTRACT ${super.visit(soustraction.b)} FROM ${super.visit(
+      soustraction.a
     )} GIVING ${node.variable.name}`
   }
   assignationDefaut(node: AssignationNoeud): string {
