@@ -5,7 +5,7 @@ export default defineConfig({
     globals: true,
     coverage: {
       reporter: ['text', 'html', 'json-summary', 'json'],
-      provider: 'c8',
+      provider: 'v8',
     },
   },
 })
