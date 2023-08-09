@@ -5,9 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@types/node':
+    specifier: '18'
+    version: 18.17.4
   prettier:
-    specifier: ^2.8.8
-    version: 2.8.8
+    specifier: ^3.0.0
+    version: 3.0.0
 
 devDependencies:
   '@types/prettier':
@@ -27,7 +30,7 @@ devDependencies:
     version: 3.0.0
   ts-node:
     specifier: ^10.9.1
-    version: 10.9.1(@types/node@20.1.7)(typescript@5.0.4)
+    version: 10.9.1(@types/node@18.17.4)(typescript@5.0.4)
   typescript:
     specifier: ^5.0.4
     version: 5.0.4
@@ -376,9 +379,8 @@ packages:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
     dev: true
 
-  /@types/node@20.1.7:
-    resolution: {integrity: sha512-WCuw/o4GSwDGMoonES8rcvwsig77dGCMbZDrZr2x4ZZiNW4P/gcoZXe/0twgtobcTkmg9TuKflxYL/DuwDyJzg==}
-    dev: true
+  /@types/node@18.17.4:
+    resolution: {integrity: sha512-ATL4WLgr7/W40+Sp1WnNTSKbgVn6Pvhc/2RHAdt8fl6NsQyp4oPCi2eKcGOvA494bwf1K/W6nGgZ9TwDqvpjdw==}
 
   /@types/prettier@2.7.2:
     resolution: {integrity: sha512-KufADq8uQqo1pYKVIYzfKbJfBAc0sOeXqGbFaSpv8MRmC/zXgowNZmFcbngndGk922QDmOASEXUZCaY48gs4cg==}
@@ -1561,6 +1563,13 @@ packages:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
     hasBin: true
+    dev: true
+
+  /prettier@3.0.0:
+    resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: false
 
   /pretty-format@29.6.2:
     resolution: {integrity: sha512-1q0oC8eRveTg5nnBEWMXAU2qpv65Gnuf2eCQzSjxpWFkPaPARwqZZDGuNE0zPAZfTCHzIk3A8dIjwlQKKLphyg==}
@@ -1874,7 +1883,7 @@ packages:
       code-block-writer: 11.0.3
     dev: true
 
-  /ts-node@10.9.1(@types/node@20.1.7)(typescript@5.0.4):
+  /ts-node@10.9.1(@types/node@18.17.4)(typescript@5.0.4):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -1893,7 +1902,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.1.7
+      '@types/node': 18.17.4
       acorn: 8.8.2
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -1977,7 +1986,7 @@ packages:
       convert-source-map: 1.9.0
     dev: true
 
-  /vite-node@0.34.0(@types/node@20.1.7):
+  /vite-node@0.34.0(@types/node@18.17.4):
     resolution: {integrity: sha512-rGZMvpb052rjUwJA/a17xMfOibzNF7byMdRSTcN2Lw8uxX08s5EfjWW5mBkm3MSFTPctMSVtT2yC+8ShrZbT5g==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -1987,7 +1996,7 @@ packages:
       mlly: 1.4.0
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 4.4.8(@types/node@20.1.7)
+      vite: 4.4.8(@types/node@18.17.4)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -1999,7 +2008,7 @@ packages:
       - terser
     dev: true
 
-  /vite@4.4.8(@types/node@20.1.7):
+  /vite@4.4.8(@types/node@18.17.4):
     resolution: {integrity: sha512-LONawOUUjxQridNWGQlNizfKH89qPigK36XhMI7COMGztz8KNY0JHim7/xDd71CZwGT4HtSRgI7Hy+RlhG0Gvg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -2027,7 +2036,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.1.7
+      '@types/node': 18.17.4
       esbuild: 0.18.17
       postcss: 8.4.27
       rollup: 3.27.0
@@ -2068,7 +2077,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.5
       '@types/chai-subset': 1.3.3
-      '@types/node': 20.1.7
+      '@types/node': 18.17.4
       '@vitest/expect': 0.34.0
       '@vitest/runner': 0.34.0
       '@vitest/snapshot': 0.34.0
@@ -2087,8 +2096,8 @@ packages:
       strip-literal: 1.0.1
       tinybench: 2.5.0
       tinypool: 0.7.0
-      vite: 4.4.8(@types/node@20.1.7)
-      vite-node: 0.34.0(@types/node@20.1.7)
+      vite: 4.4.8(@types/node@18.17.4)
+      vite-node: 0.34.0(@types/node@18.17.4)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less

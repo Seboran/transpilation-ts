@@ -15,15 +15,16 @@ import JavascriptGenerator from './visiteurs/impl/generator/js/JavascriptGenerat
 
 const instruction = new AssignationNoeud(
   new LitteralNoeud('test'),
-  new AdditionNoeud(new NombreNoeud(2), new NombreNoeud(3))
+  new AdditionNoeud(new NombreNoeud(2), new NombreNoeud(3)),
 )
 const generateurCobol = new CobolGenerator()
 createMarkdown(instruction.accept(generateurCobol), './cobolcode.md', 'cobol')
 
 const generateurJavascript = new JavascriptGenerator()
-createMarkdown(
-  prettier.format(instruction.accept(generateurJavascript), {
-    parser: 'babel',
-  }),
-  './code.md'
-)
+;(async () =>
+  createMarkdown(
+    await prettier.format(instruction.accept(generateurJavascript), {
+      parser: 'babel',
+    }),
+    './code.md',
+  ))()
