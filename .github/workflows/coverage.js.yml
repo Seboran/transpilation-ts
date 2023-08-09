@@ -29,6 +29,6 @@ jobs:
     - run: pnpm i
     - run: pnpm run coverage
     - name: Vitest Coverage Report
-      uses: davelosert/vitest-coverage-report-action@v1.4.0
+      uses: davelosert/vitest-coverage-report-action@v2.1.1
 
       
