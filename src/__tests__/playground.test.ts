@@ -10,13 +10,13 @@ import { JavascriptGenerator, CobolGenerator } from '../visiteurs'
 import prettier from 'prettier'
 
 describe('playground', () => {
-  test('should work', () => {
+  test('should work', async () => {
     const instruction = new AssignationNoeud(
       new LitteralNoeud('test'),
       new AdditionNoeud(new NombreNoeud(5), new NombreNoeud(3))
     )
     const generateurJavascript = new JavascriptGenerator()
-    const prettiedCode = prettier.format(
+    const prettiedCode = await prettier.format(
       instruction.accept(generateurJavascript),
       {
         parser: 'babel',
