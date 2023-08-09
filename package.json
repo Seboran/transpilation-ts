@@ -4,6 +4,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
+  "engines": {
+    "node": ">=10",
+    "pnpm": ">=3"
+  },
   "scripts": {
     "start": "nodemon src/playground.ts --watch src",
     "test": "vitest",
