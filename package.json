@@ -22,7 +22,7 @@
     "vitest": "^0.34.0"
   },
   "dependencies": {
-    "@types/node": "18",
+    "@types/node": "20",
     "prettier": "^3.0.0"
   },
   "files": [
