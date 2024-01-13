@@ -6,10 +6,7 @@
     "esModuleInterop": true,
     "outDir": "dist",
     "typeRoots": ["./node_modules/@types"],
-    "experimentalDecorators": true,
-    "declaration": true
+    "experimentalDecorators": true
   },
-  "include": [
-    "src/**/*.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }

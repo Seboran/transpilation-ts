@@ -1,30 +1,30 @@
-import * as prettier from 'prettier'
-import createMarkdown from './createMarkdown'
-import AdditionNoeud from './model/AdditionNoeud.model'
-import AssignationNoeud from './model/AssignationNoeud.model'
-import LitteralNoeud from './model/LitteralNoeud.model'
-import NombreNoeud from './model/NombreNoeud.model'
-import CobolGenerator from './visiteurs/impl/generator/cobol/CobolGenerator'
-import JavascriptGenerator from './visiteurs/impl/generator/js/JavascriptGenerator'
+import BoutonHtml from './model/html/bouton.model'
+import ElementsHtml from './model/html/elements.model'
+import IfHtml from './model/html/if.model'
+import LeafHtml from './model/html/leaf.model'
+import HtmlOrchestrateur from './visiteurs/impl/generator/html/HtmlOrchestrateur'
 
-// TODO
+let condition = { valeur: false }
 
-// const prettiedCode = prettier.format('2 + 4', { parser: 'babel' })
-
-// createMarkdown(prettiedCode, './code.md')
-
-const instruction = new AssignationNoeud(
-  new LitteralNoeud('test'),
-  new AdditionNoeud(new NombreNoeud(2), new NombreNoeud(3)),
-)
-const generateurCobol = new CobolGenerator()
-createMarkdown(instruction.accept(generateurCobol), './cobolcode.md', 'cobol')
-
-const generateurJavascript = new JavascriptGenerator()
-;(async () =>
-  createMarkdown(
-    await prettier.format(instruction.accept(generateurJavascript), {
-      parser: 'babel',
-    }),
-    './code.md',
-  ))()
+const fonctionsAAppeler: ((valeur: boolean) => void)[] = []
+const proxyCondition = new Proxy(condition, {
+  set(target, prop, newValue) {
+    // @ts-ignore
+    target[prop] = newValue
+    fonctionsAAppeler.forEach((f) => f(newValue))
+    return true
+  },
+})
+const onClickBouton = () => {
+  console.log('salut')
+  proxyCondition.valeur = !proxyCondition.valeur
+}
+const bouton1 = new BoutonHtml(onClickBouton, 'cliquez moi dessus!')
+const texte = new LeafHtml('un autre texte')
+const ifHtml = new IfHtml(fonctionsAAppeler, texte)
+const elements = new ElementsHtml(bouton1, ifHtml)
+const generateur = new HtmlOrchestrateur()
+const nirinaComposant = elements.accept(generateur)
+console.log(nirinaComposant)
+document.querySelector('#app')!.innerHTML = nirinaComposant.template
+nirinaComposant.script()

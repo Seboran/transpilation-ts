@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES5", // ES5 is widely supported by all browsers
+    "module": "ESNext", // Use ESNext if you plan to use a module bundler like Webpack or Rollup
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "typeRoots": ["./node_modules/@types"],
+    "experimentalDecorators": true,
+    "lib": ["DOM", "ES2015", "DOM.Iterable", "ScriptHost"], // Include DOM library for browser APIs
+    "moduleResolution": "node" // Use Node.js style module resolution
+  },
+  "include": ["src/**/*.ts"]
+}
