@@ -12,7 +12,7 @@
     "prepublish": "ctix create --overwrite --useRootDir && tsc"
   },
   "devDependencies": {
-    "@types/prettier": "^2.7.3",
+    "@types/prettier": "^3.0.0",
     "@vitest/coverage-v8": "^1.2.1",
     "ctix": "^2.3.0",
     "nodemon": "^3.0.3",
