@@ -21,7 +21,7 @@ devDependencies:
     version: 1.4.0(vitest@1.4.0)
   ctix:
     specifier: ^2.3.0
-    version: 2.4.1
+    version: 2.4.2
   nodemon:
     specifier: ^3.0.3
     version: 3.1.0
@@ -898,8 +898,8 @@ packages:
       which: 2.0.2
     dev: true
 
-  /ctix@2.4.1:
-    resolution: {integrity: sha512-L6XHxdJBtRC0K19OwVvo+NCnL/SBqpgi81cSHbG5pDSNDgdI0/nyVY20TCeCTPhum4J4JGTA5Ns9jTGjjU0q/A==}
+  /ctix@2.4.2:
+    resolution: {integrity: sha512-BVdxq/cv72Mzg8Z/DuUNsBPCWG4ZbOjZNbHvlnpehRpG7EvQmInFHjOy5bMEj2kUYwfcLQ6hTWk3q+vWK53oOw==}
     engines: {node: '>=18'}
     hasBin: true
     dependencies:
@@ -929,7 +929,7 @@ packages:
       ts-morph: 20.0.0
       ts-pattern: 5.0.8
       tslib: 2.6.2
-      type-fest: 4.13.1
+      type-fest: 4.14.0
       typescript: 5.4.3
       yaml: 2.4.1
       yargs: 17.7.2
@@ -2170,8 +2170,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /type-fest@4.13.1:
-    resolution: {integrity: sha512-ASMgM+Vf2cLwDMt1KXSkMUDSYCxtckDJs8zsaVF/mYteIsiARKCVtyXtcK38mIKbLTctZP8v6GMqdNaeI3fo7g==}
+  /type-fest@4.14.0:
+    resolution: {integrity: sha512-on5/Cw89wwqGZQu+yWO0gGMGu8VNxsaW9SB2HE8yJjllEk7IDTwnSN1dUVldYILhYPN5HzD7WAaw2cc/jBfn0Q==}
     engines: {node: '>=16'}
     dev: true
 
