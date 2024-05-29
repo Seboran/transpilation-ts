@@ -1,5 +1,9 @@
 
-```typescript
-var test = 2 + 3;
+```js
+var X = TODO;
+
+```
+
+```cobol
 
 ```
