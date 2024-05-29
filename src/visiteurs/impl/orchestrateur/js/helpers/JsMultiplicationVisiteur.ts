@@ -7,6 +7,7 @@ export default class JsMultiplicationVisiteur
   implements VisiteurNoeud<string, MultiplicationNoeud>
 {
   visit(node: MultiplicationNoeud): string {
-    return super.visit(node.a) + ' * ' + super.visit(node.b)
+    // TODO coder la multiplication
+    return 'TODO'
   }
 }
