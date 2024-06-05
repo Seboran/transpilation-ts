@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon src/playground.ts --watch src",
+    "start:typescript": "nodemon src/tsc-playground.ts --watch src",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "build": "tsc",
