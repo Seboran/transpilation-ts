@@ -8,6 +8,6 @@ export default class JsAdditionVisiteur
 {
   visit(node: AdditionNoeud): string {
     // TODO coder l'addition
-    return "TODO"
+    return 'TODO addition'
   }
 }

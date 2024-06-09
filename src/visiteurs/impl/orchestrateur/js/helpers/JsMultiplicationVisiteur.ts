@@ -8,6 +8,6 @@ export default class JsMultiplicationVisiteur
 {
   visit(node: MultiplicationNoeud): string {
     // TODO coder la multiplication
-    return 'TODO'
+    return 'TODO multiplication'
   }
 }
