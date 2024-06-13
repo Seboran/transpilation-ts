@@ -5,9 +5,9 @@ Ce projet permet de générer du code dans n'importe quel langage à partir d'un
 ## Comment lancer ce projet ?
 
 ```bash
-yarn run start
+pnpm i
+pnpm start
 ```
-
 ## Comment créer son propre code
 
 On veut représenter avec des nodes l'instruction suivante en pseudo code :
