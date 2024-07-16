@@ -1,4 +1,4 @@
-import * as prettier from 'prettier'
+import { format } from 'prettier'
 import createMarkdown from './createMarkdown'
 import AdditionNoeud from './model/AdditionNoeud.model'
 import AssignationNoeud from './model/AssignationNoeud.model'
@@ -9,7 +9,7 @@ import JavascriptGenerator from './visiteurs/impl/generator/js/JavascriptGenerat
 
 // TODO
 
-// const prettiedCode = prettier.format('2 + 4', { parser: 'babel' })
+// const prettiedCode = format('2 + 4', { parser: 'babel' })
 
 // createMarkdown(prettiedCode, './code.md')
 
@@ -23,7 +23,7 @@ createMarkdown(instruction.accept(generateurCobol), './cobolcode.md', 'cobol')
 const generateurJavascript = new JavascriptGenerator()
 ;(async () =>
   createMarkdown(
-    await prettier.format(instruction.accept(generateurJavascript), {
+    await format(instruction.accept(generateurJavascript), {
       parser: 'babel',
     }),
     './code.md',
