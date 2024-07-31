@@ -12,12 +12,12 @@
     "prepublish": "ctix create --overwrite --useRootDir && tsc"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "2.0.4",
+    "@vitest/coverage-v8": "2.0.5",
     "ctix": "2.5.1",
     "nodemon": "3.1.4",
     "ts-node": "10.9.2",
     "typescript": "5.5.4",
-    "vitest": "2.0.4"
+    "vitest": "2.0.5"
   },
   "dependencies": {
     "@types/node": "^20.11.5",
