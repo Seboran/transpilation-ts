@@ -14,7 +14,7 @@
   "devDependencies": {
     "@vitest/coverage-v8": "2.1.1",
     "ctix": "2.6.4",
-    "nodemon": "3.1.4",
+    "nodemon": "3.1.7",
     "ts-node": "10.9.2",
     "typescript": "5.6.2",
     "vitest": "2.1.1"
