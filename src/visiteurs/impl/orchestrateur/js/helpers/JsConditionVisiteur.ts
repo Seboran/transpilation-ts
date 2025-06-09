@@ -1,5 +1,5 @@
-import ConditionNode from '../../../../../model/ConditionNode.model'
-import VisiteurNoeud from '../../../../VisiteurNoeud'
+import type ConditionNode from '../../../../../model/ConditionNode.model'
+import type VisiteurNoeud from '../../../../VisiteurNoeud'
 import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsConditionVisiteur

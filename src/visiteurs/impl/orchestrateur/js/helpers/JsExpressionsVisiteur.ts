@@ -1,5 +1,5 @@
-import ExpressionsNoeud from '../../../../../model/ExpressionsNoeud.model'
-import VisiteurNoeud from '../../../../VisiteurNoeud'
+import type ExpressionsNoeud from '../../../../../model/ExpressionsNoeud.model'
+import type VisiteurNoeud from '../../../../VisiteurNoeud'
 import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsExpressionsVisiteur

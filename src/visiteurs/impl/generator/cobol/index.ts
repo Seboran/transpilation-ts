@@ -1,1 +1,1 @@
-export { default as CobolGenerator } from './CobolGenerator';
+export { default as CobolGenerator } from './CobolGenerator'

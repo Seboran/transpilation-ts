@@ -5,12 +5,12 @@ import ExpressionsNoeud from '../../../../model/ExpressionsNoeud.model'
 import FonctionNoeud from '../../../../model/FonctionNoeud.model'
 import LitteralNoeud from '../../../../model/LitteralNoeud.model'
 import MultiplicationNoeud from '../../../../model/MultiplicationNoeud.model'
-import NoeudModel from '../../../../model/Noeud.model'
+import type NoeudModel from '../../../../model/Noeud.model'
 import NombreNoeud from '../../../../model/NombreNoeud.model'
 import SiNoeud from '../../../../model/SiNoeud.model'
 import SoustractionNoeud from '../../../../model/SoustractionNoeud.model'
 import SuperieurNoeud from '../../../../model/SuperieurNoeud.model'
-import VisiteurNoeud from '../../../VisiteurNoeud'
+import type VisiteurNoeud from '../../../VisiteurNoeud'
 import AbstractVisiteurOrchestrateur from '../AbstractVisiteurOrchestrateur'
 import JsAdditionVisiteur from './helpers/JsAdditionVisiteur'
 import JsAssignationVisiteur from './helpers/JsAssignationVisiteur'
@@ -25,10 +25,7 @@ import JsSoutractionVisiteur from './helpers/JsSoutractionVisiteur'
 import JsSuperieurVisiteur from './helpers/JsSuperieurVisiteur'
 
 const visiteurMappings: Array<
-  [
-    new (...args: any[]) => NoeudModel,
-    new (...args: any[]) => VisiteurNoeud<string, NoeudModel>
-  ]
+  [new (...args: any[]) => NoeudModel, new (...args: any[]) => VisiteurNoeud<string, NoeudModel>]
 > = [
   [AdditionNoeud, JsAdditionVisiteur],
   [SuperieurNoeud, JsSuperieurVisiteur],
@@ -52,10 +49,7 @@ export default class JavascriptOrchestrateur extends AbstractVisiteurOrchestrate
     })
   }
 
-  add<T extends NoeudModel>(
-    clazz: new (...args: any[]) => T,
-    visiteur: VisiteurNoeud<string, T>
-  ) {
+  add<T extends NoeudModel>(clazz: new (...args: any[]) => T, visiteur: VisiteurNoeud<string, T>) {
     this.orchestre[clazz.name] = visiteur
   }
 }

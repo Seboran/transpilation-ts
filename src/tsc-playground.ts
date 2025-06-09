@@ -5,10 +5,9 @@ import createMarkdown from './createMarkdown'
 const source = `let x: string  = 'string'
 `
 
-let result = ts.transpileModule(source, {
+const result = ts.transpileModule(source, {
   compilerOptions: { module: ts.ModuleKind.CommonJS },
 })
-
 ;(async () =>
   createMarkdown(
     await prettier.format(result.outputText, {

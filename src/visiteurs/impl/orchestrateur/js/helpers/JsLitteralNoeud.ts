@@ -1,5 +1,5 @@
-import LitteralNoeud from '../../../../../model/LitteralNoeud.model'
-import VisiteurNoeud from '../../../../VisiteurNoeud'
+import type LitteralNoeud from '../../../../../model/LitteralNoeud.model'
+import type VisiteurNoeud from '../../../../VisiteurNoeud'
 import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsLitteralVisiteur

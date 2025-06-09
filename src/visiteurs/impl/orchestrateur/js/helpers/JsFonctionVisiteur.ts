@@ -1,5 +1,5 @@
-import FonctionNoeud from '../../../../../model/FonctionNoeud.model'
-import VisiteurNoeud from '../../../../VisiteurNoeud'
+import type FonctionNoeud from '../../../../../model/FonctionNoeud.model'
+import type VisiteurNoeud from '../../../../VisiteurNoeud'
 import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsFonctionVisiteur
@@ -7,11 +7,6 @@ export default class JsFonctionVisiteur
   implements VisiteurNoeud<string, FonctionNoeud>
 {
   visit(node: FonctionNoeud): string {
-    return (
-      super.visit(node.nom) +
-      '(' +
-      node.args.map(super.visit.bind(this)).join(',') +
-      ')'
-    )
+    return super.visit(node.nom) + '(' + node.args.map(super.visit.bind(this)).join(',') + ')'
   }
 }

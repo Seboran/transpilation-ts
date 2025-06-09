@@ -1,2 +1,2 @@
-export * from './impl';
-export type { default as VisiteurNoeud } from './VisiteurNoeud';
+export * from './impl'
+export type { default as VisiteurNoeud } from './VisiteurNoeud'

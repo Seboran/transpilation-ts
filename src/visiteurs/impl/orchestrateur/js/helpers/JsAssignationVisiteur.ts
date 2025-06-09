@@ -1,5 +1,5 @@
-import AssignationNoeud from '../../../../../model/AssignationNoeud.model'
-import VisiteurNoeud from '../../../../VisiteurNoeud'
+import type AssignationNoeud from '../../../../../model/AssignationNoeud.model'
+import type VisiteurNoeud from '../../../../VisiteurNoeud'
 import AbstractVisiteurOrchestrateur from '../../AbstractVisiteurOrchestrateur'
 
 export default class JsAssignationVisiteur
@@ -8,13 +8,7 @@ export default class JsAssignationVisiteur
 {
   visit(node: AssignationNoeud): string {
     const prefix = this.getPrefix(node.final)
-    return (
-      prefix +
-      ' ' +
-      super.visit(node.variable) +
-      ' = ' +
-      super.visit(node.expression)
-    )
+    return prefix + ' ' + super.visit(node.variable) + ' = ' + super.visit(node.expression)
   }
 
   private getPrefix(final: 'final' | 'default') {

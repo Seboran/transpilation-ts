@@ -1,5 +1,5 @@
-import NoeudModel from '../../../model/Noeud.model'
-import VisiteurNoeud from '../../VisiteurNoeud'
+import type NoeudModel from '../../../model/Noeud.model'
+import type VisiteurNoeud from '../../VisiteurNoeud'
 
 export default abstract class AbstractVisiteurOrchestrateur<T> {
   constructor(public orchestre: Record<string, VisiteurNoeud<T, NoeudModel>>) {}

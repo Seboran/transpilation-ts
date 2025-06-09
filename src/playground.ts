@@ -18,5 +18,5 @@ const generateurJavascript = new JavascriptGenerator()
     }),
     '',
     // assignation.accept(generateurCobol),
-    './code.md'
+    './code.md',
   ))()

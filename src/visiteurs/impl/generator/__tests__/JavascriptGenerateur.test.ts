@@ -1,6 +1,4 @@
 import { describe, expect, test } from 'vitest'
-import JavascriptGenerator from '../js/JavascriptGenerator'
-import VisiteurNoeud from '../../../VisiteurNoeud'
 import AdditionNoeud from '../../../../model/AdditionNoeud.model'
 import AssignationNoeud from '../../../../model/AssignationNoeud.model'
 import ConditionNode from '../../../../model/ConditionNode.model'
@@ -9,43 +7,41 @@ import ExpressionsNoeud from '../../../../model/ExpressionsNoeud.model'
 import FonctionNoeud from '../../../../model/FonctionNoeud.model'
 import LitteralNoeud from '../../../../model/LitteralNoeud.model'
 import MultiplicationNoeud from '../../../../model/MultiplicationNoeud.model'
-import NoeudModel from '../../../../model/Noeud.model'
+import type NoeudModel from '../../../../model/Noeud.model'
 import NombreNoeud from '../../../../model/NombreNoeud.model'
 import SiNoeud from '../../../../model/SiNoeud.model'
 import SoustractionNoeud from '../../../../model/SoustractionNoeud.model'
 import SuperieurNoeud from '../../../../model/SuperieurNoeud.model'
+import type VisiteurNoeud from '../../../VisiteurNoeud'
+import JavascriptGenerator from '../js/JavascriptGenerator'
 
 describe('Javascript Générateur', () => {
   test('Génére le bon javascript 1', () => {
     const instructions: NoeudModel = new SiNoeud(
-      new ConditionNode(
-        new SuperieurNoeud(new LitteralNoeud('X'), new LitteralNoeud('Y'))
-      ),
+      new ConditionNode(new SuperieurNoeud(new LitteralNoeud('X'), new LitteralNoeud('Y'))),
       new AssignationNoeud(
         new LitteralNoeud('Z'),
         new AdditionNoeud(
           new NombreNoeud(2),
-          new MultiplicationNoeud(new NombreNoeud(5), new NombreNoeud(3))
-        )
+          new MultiplicationNoeud(new NombreNoeud(5), new NombreNoeud(3)),
+        ),
       ),
       new AdditionNoeud(
         new NombreNoeud(2),
-        new SoustractionNoeud(new NombreNoeud(5), new NombreNoeud(3))
-      )
+        new SoustractionNoeud(new NombreNoeud(5), new NombreNoeud(3)),
+      ),
     )
 
     const javascriptGenerator = new JavascriptGenerator()
     const result = instructions.accept(javascriptGenerator)
-    expect(result).toEqual(
-      'if (X > Y) { var Z = 2 + 5 * 3 } else { 2 + 5 - 3 }'
-    )
+    expect(result).toEqual('if (X > Y) { var Z = 2 + 5 * 3 } else { 2 + 5 - 3 }')
   })
   test('Assignation', () => {
     const javascriptGenerator = new JavascriptGenerator()
 
     const instructions: AssignationNoeud = new AssignationNoeud(
       new LitteralNoeud('bonjour'),
-      new AdditionNoeud(new NombreNoeud(2), new LitteralNoeud('salut'))
+      new AdditionNoeud(new NombreNoeud(2), new LitteralNoeud('salut')),
     )
 
     const result = instructions.accept(javascriptGenerator)
@@ -58,7 +54,7 @@ describe('Javascript Générateur', () => {
     const instructions: AssignationNoeud = new AssignationNoeud(
       new LitteralNoeud('bonjour'),
       new NombreNoeud(2),
-      'final'
+      'final',
     )
 
     const result = instructions.accept(javascriptGenerator)
@@ -69,7 +65,7 @@ describe('Javascript Générateur', () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instructions: NoeudModel = new AdditionNoeud(
       new LitteralNoeud('2'),
-      new LitteralNoeud('3')
+      new LitteralNoeud('3'),
     )
     const result = instructions.accept(javascriptGenerator)
     expect(result).toEqual('2 + 3')
@@ -84,7 +80,7 @@ describe('Javascript Générateur', () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instructions: NoeudModel = new ExpressionsNoeud(
       new LitteralNoeud('2'),
-      new LitteralNoeud('3')
+      new LitteralNoeud('3'),
     )
 
     const result = instructions.accept(javascriptGenerator)
@@ -95,7 +91,7 @@ describe('Javascript Générateur', () => {
     const instructions: NoeudModel = new ExpressionsNoeud(
       new AssignationNoeud(new LitteralNoeud('x'), new NombreNoeud(2)),
       new AssignationNoeud(new LitteralNoeud('x'), new NombreNoeud(3)),
-      new AdditionNoeud(new NombreNoeud(2), new NombreNoeud(2))
+      new AdditionNoeud(new NombreNoeud(2), new NombreNoeud(2)),
     )
 
     const result = instructions.accept(javascriptGenerator)
@@ -104,32 +100,28 @@ describe('Javascript Générateur', () => {
   test("Liste d'expressions 3", () => {
     const javascriptGenerator = new JavascriptGenerator()
     const siNoeud = new SiNoeud(
-      new ConditionNode(
-        new SuperieurNoeud(new LitteralNoeud('X'), new LitteralNoeud('Y'))
-      ),
+      new ConditionNode(new SuperieurNoeud(new LitteralNoeud('X'), new LitteralNoeud('Y'))),
       new AssignationNoeud(
         new LitteralNoeud('Z'),
         new AdditionNoeud(
           new NombreNoeud(2),
-          new MultiplicationNoeud(new NombreNoeud(5), new NombreNoeud(3))
-        )
+          new MultiplicationNoeud(new NombreNoeud(5), new NombreNoeud(3)),
+        ),
       ),
       new AdditionNoeud(
         new NombreNoeud(2),
-        new SoustractionNoeud(new NombreNoeud(5), new NombreNoeud(3))
-      )
+        new SoustractionNoeud(new NombreNoeud(5), new NombreNoeud(3)),
+      ),
     )
 
     const instructions: NoeudModel = new ExpressionsNoeud(
       new FonctionNoeud(new LitteralNoeud('mafonction')),
       siNoeud,
-      new ConditionNode(
-        new SuperieurNoeud(new LitteralNoeud('a'), new LitteralNoeud('b'))
-      )
+      new ConditionNode(new SuperieurNoeud(new LitteralNoeud('a'), new LitteralNoeud('b'))),
     )
     const result = instructions.accept(javascriptGenerator)
     expect(result).toEqual(
-      'mafonction(); if (X > Y) { var Z = 2 + 5 * 3 } else { 2 + 5 - 3 }; a > b;'
+      'mafonction(); if (X > Y) { var Z = 2 + 5 * 3 } else { 2 + 5 - 3 }; a > b;',
     )
   })
   test('Fonction 1', () => {
@@ -137,7 +129,7 @@ describe('Javascript Générateur', () => {
     const instruction: NoeudModel = new FonctionNoeud(
       new LitteralNoeud('mafonction'),
       new NombreNoeud(2),
-      new NombreNoeud(3)
+      new NombreNoeud(3),
     )
     const result = instruction.accept(javascriptGenerator)
     expect(result).toEqual('mafonction(2,3)')
@@ -153,7 +145,7 @@ describe('Javascript Générateur', () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instructions: NoeudModel = new MultiplicationNoeud(
       new LitteralNoeud('2'),
-      new LitteralNoeud('3')
+      new LitteralNoeud('3'),
     )
     const result = instructions.accept(javascriptGenerator)
     expect(result).toEqual('2 * 3')
@@ -169,7 +161,7 @@ describe('Javascript Générateur', () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instructions: NoeudModel = new SoustractionNoeud(
       new LitteralNoeud('2'),
-      new LitteralNoeud('3')
+      new LitteralNoeud('3'),
     )
     const result = instructions.accept(javascriptGenerator)
     expect(result).toEqual('2 - 3')
@@ -178,7 +170,7 @@ describe('Javascript Générateur', () => {
     const javascriptGenerator = new JavascriptGenerator()
     const instructions: NoeudModel = new SuperieurNoeud(
       new LitteralNoeud('2'),
-      new LitteralNoeud('3')
+      new LitteralNoeud('3'),
     )
     const result = instructions.accept(javascriptGenerator)
     expect(result).toEqual('2 > 3')

@@ -1,2 +1,2 @@
-export * from './applyMethodDecoratorToAllMethods';
-export * from './consolelogDecorator';
+export * from './applyMethodDecoratorToAllMethods'
+export * from './consolelogDecorator'

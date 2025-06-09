@@ -2,26 +2,23 @@ import AssignationNoeud from '../../../../model/AssignationNoeud.model'
 import ConditionNode from '../../../../model/ConditionNode.model'
 import ExpressionsNoeud from '../../../../model/ExpressionsNoeud.model'
 import LitteralNoeud from '../../../../model/LitteralNoeud.model'
-import NoeudModel from '../../../../model/Noeud.model'
+import type NoeudModel from '../../../../model/Noeud.model'
 import NombreNoeud from '../../../../model/NombreNoeud.model'
 import SiNoeud from '../../../../model/SiNoeud.model'
 import SuperieurNoeud from '../../../../model/SuperieurNoeud.model'
-import VisiteurNoeud from '../../../VisiteurNoeud'
+import type VisiteurNoeud from '../../../VisiteurNoeud'
 import {
-  CobolAssignationVisiteur,
-  JsNombreVisiteur,
-  JsLitteralVisiteur,
-  JsConditionVisiteur,
-  JsSuperieurVisiteur,
   AbstractVisiteurOrchestrateur,
+  CobolAssignationVisiteur,
+  JsConditionVisiteur,
+  JsLitteralVisiteur,
+  JsNombreVisiteur,
+  JsSuperieurVisiteur,
 } from '../../orchestrateur'
 import CobolSiVisiteur from '../../orchestrateur/cobol/helpers/CobolSiVisiteur'
 
 const visiteurMappings: Array<
-  [
-    new (...args: any[]) => NoeudModel,
-    new (...args: any[]) => VisiteurNoeud<string, NoeudModel>,
-  ]
+  [new (...args: any[]) => NoeudModel, new (...args: any[]) => VisiteurNoeud<string, NoeudModel>]
 > = [
   [AssignationNoeud, CobolAssignationVisiteur],
   [NombreNoeud, JsNombreVisiteur],
@@ -48,10 +45,7 @@ export default class CobolOrchestrateur extends AbstractVisiteurOrchestrateur<st
     })
   }
 
-  add<T extends NoeudModel>(
-    clazz: new (...args: any[]) => T,
-    visiteur: VisiteurNoeud<string, T>,
-  ) {
+  add<T extends NoeudModel>(clazz: new (...args: any[]) => T, visiteur: VisiteurNoeud<string, T>) {
     this.orchestre[clazz.name] = visiteur
   }
 }

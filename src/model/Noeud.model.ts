@@ -1,4 +1,4 @@
-import VisiteurNoeud from '../visiteurs/VisiteurNoeud'
+import type VisiteurNoeud from '../visiteurs/VisiteurNoeud'
 
 export default abstract class NoeudModel {
   accept<T>(visitor: VisiteurNoeud<T, NoeudModel>): T {

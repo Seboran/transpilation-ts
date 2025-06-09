@@ -8,7 +8,7 @@
     "typeRoots": ["./node_modules/@types"],
     "experimentalDecorators": true,
     "declaration": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts"]
 }

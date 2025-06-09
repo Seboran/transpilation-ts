@@ -10,9 +10,12 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "build": "tsc",
-    "prepublish": "ctix create --overwrite --useRootDir && tsc"
+    "prepublish": "ctix create --overwrite --useRootDir && tsc",
+    "format": "biome check --write",
+    "format:check": "biome check"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/prettier": "^3.0.0",
     "@vitest/coverage-v8": "^1.2.1",
     "ctix": "^2.3.0",
@@ -25,7 +28,5 @@
     "@types/node": "^20.11.5",
     "prettier": "^3.2.4"
   },
-  "files": [
-    "dist"
-  ]
+  "files": ["dist"]
 }
